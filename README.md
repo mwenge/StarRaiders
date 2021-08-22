@@ -1,7 +1,8 @@
 # Star Raiders (1979) by Douglas Neubauer
-<img src="https://user-images.githubusercontent.com/58846/125344603-67e64d80-e34f-11eb-90bf-79a6260db9f1.png" height=250><img src="https://user-images.githubusercontent.com/58846/125094574-4aa14d00-e0cb-11eb-9cf9-6dec489585f4.gif" height=250>
+<img src="https://user-images.githubusercontent.com/58846/130362374-c449633e-34e6-444f-ba6c-3a8e9bf49482.png" height=250><img src="https://user-images.githubusercontent.com/58846/130362369-d432b3c2-0e40-4be1-8922-6169a58ccbbf.gif" height=250>
 
 
+This fork of [Lorenz Wiest's disassembly of Star Raiders](lwiest/StarRaiders) has been modified to build with [64tass](https://64tass.sf.net) and run with [atari800](https://atari800.github.io/).
 
 <!-- vim-markdown-toc GFM -->
 
@@ -20,5 +21,5 @@ sudo apt install 64tass atari800
 ### Build and Play Star Raiders
 
 ```sh
-make run
+make
 ```

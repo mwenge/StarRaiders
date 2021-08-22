@@ -15,7 +15,7 @@ starraiders.xex: src/starraiders.asm
 
 
 run: starraiders.xex
-	$(XATARI) -win-height 800 -win-width 1200 $(XATARI_IMAGE)
+	$(XATARI) -cart-type 1 -win-height 800 -win-width 1200 -cart $(XATARI_IMAGE)
 
 clean:
 	-rm bin/starraiders.xex
