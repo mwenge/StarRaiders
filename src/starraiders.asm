@@ -97,7 +97,7 @@
  ; OPERATORS
  ;
  ; o   The exclamation mark (!) is the binary OR operator.
- ;     Example: $01!$02 is $03.
+ ;     Example: $01|$02 is $03.
  ;
  ; o   The less-than sign (<) indicates bits B7..0 of a word.
  ;     Example: <$1234 is $34.
@@ -2259,7 +2259,7 @@
  AUDCTL          = $D208                           ; Audio control
  KBCODE          = $D209                           ; Keyboard code
  STIMER          = $D209                           ; Start POKEY timers
- RANDOM          = $D20A                           ; Random number generator
+ LRANDOM          = $D20A                           ; Random number generator
  IRQEN           = $D20E                           ; Interrupt request (IRQ) enable
  SKCTL           = $D20F                           ; Serial port control
  PORTA           = $D300                           ; Port A
@@ -2558,85 +2558,85 @@
 
  ;*** Number of space objects ***************************************************
 
- NUMSPCOBJ.PL    = 5                               ; Number of PLAYER space objects
- NUMSPCOBJ.STARS = 12                              ; Number of PLAYFIELD space objects (stars)
- NUMSPCOBJ.NORM  = NUMSPCOBJ.PL+NUMSPCOBJ.STARS    ; Normal number of space objects
- NUMSPCOBJ.ALL   = 49                              ; Maximum number of space objects
+ NUMSPCOBJ_PL    = 5                               ; Number of PLAYER space objects
+ NUMSPCOBJ_STARS = 12                              ; Number of PLAYFIELD space objects (stars)
+ NUMSPCOBJ_NORM  = NUMSPCOBJ_PL+NUMSPCOBJ_STARS    ; Normal number of space objects
+ NUMSPCOBJ_ALL   = 49                              ; Maximum number of space objects
 
  ;*** PLAYER shape data offsets *************************************************
 
- SHAP.TORPEDO    = $00                             ; Photon torpedo
- SHAP.ZFIGHTER   = $10                             ; Zylon fighter
- SHAP.STARBASEL  = $20                             ; Starbase (left part)
- SHAP.STARBASEC  = $30                             ; Starbase (center part)
- SHAP.STARBASER  = $40                             ; Starbase (right part)
- SHAP.TRANSVSSL  = $50                             ; Transfer vessel
- SHAP.METEOR     = $60                             ; Meteor
- SHAP.ZCRUISER   = $70                             ; Zylon cruiser
- SHAP.ZBASESTAR  = $80                             ; Zylon basestar
- SHAP.HYPERWARP  = $90                             ; Hyperwarp Target Marker
+ SHAP_TORPEDO    = $00                             ; Photon torpedo
+ SHAP_ZFIGHTER   = $10                             ; Zylon fighter
+ SHAP_STARBASEL  = $20                             ; Starbase (left part)
+ SHAP_STARBASEC  = $30                             ; Starbase (center part)
+ SHAP_STARBASER  = $40                             ; Starbase (right part)
+ SHAP_TRANSVSSL  = $50                             ; Transfer vessel
+ SHAP_METEOR     = $60                             ; Meteor
+ SHAP_ZCRUISER   = $70                             ; Zylon cruiser
+ SHAP_ZBASESTAR  = $80                             ; Zylon basestar
+ SHAP_HYPERWARP  = $90                             ; Hyperwarp Target Marker
 
  ;*** ROM character set constants ***********************************************
- ROM.SPC         = $00                             ; ROM character ' '
- ROM.DOT         = $0E                             ; ROM character '.'
- ROM.0           = $10                             ; ROM character '0'
- ROM.1           = $11                             ; ROM character '1'
- ROM.2           = $12                             ; ROM character '2'
- ROM.3           = $13                             ; ROM character '3'
- ROM.4           = $14                             ; ROM character '4'
- ROM.5           = $15                             ; ROM character '5'
- ROM.9           = $19                             ; ROM character '9'
- ROM.COLON       = $1A                             ; ROM character ':'
- ROM.A           = $21                             ; ROM character 'A'
- ROM.C           = $23                             ; ROM character 'C'
- ROM.D           = $24                             ; ROM character 'D'
- ROM.E           = $25                             ; ROM character 'E'
- ROM.G           = $27                             ; ROM character 'G'
- ROM.L           = $2C                             ; ROM character 'L'
- ROM.N           = $2E                             ; ROM character 'N'
- ROM.P           = $30                             ; ROM character 'P'
- ROM.R           = $32                             ; ROM character 'R'
- ROM.S           = $33                             ; ROM character 'S'
- ROM.T           = $34                             ; ROM character 'T'
- ROM.W           = $37                             ; ROM character 'W'
- ROM.Y           = $39                             ; ROM character 'Y'
+ ROM_SPC         = $00                             ; ROM character ' '
+ ROM_DOT         = $0E                             ; ROM character '.'
+ ROM_0           = $10                             ; ROM character '0'
+ ROM_1           = $11                             ; ROM character '1'
+ ROM_2           = $12                             ; ROM character '2'
+ ROM_3           = $13                             ; ROM character '3'
+ ROM_4           = $14                             ; ROM character '4'
+ ROM_5           = $15                             ; ROM character '5'
+ ROM_9           = $19                             ; ROM character '9'
+ ROM_COLON       = $1A                             ; ROM character ':'
+ ROM_A           = $21                             ; ROM character 'A'
+ ROM_C           = $23                             ; ROM character 'C'
+ ROM_D           = $24                             ; ROM character 'D'
+ ROM_E           = $25                             ; ROM character 'E'
+ ROM_G           = $27                             ; ROM character 'G'
+ ROM_L           = $2C                             ; ROM character 'L'
+ ROM_N           = $2E                             ; ROM character 'N'
+ ROM_P           = $30                             ; ROM character 'P'
+ ROM_R           = $32                             ; ROM character 'R'
+ ROM_S           = $33                             ; ROM character 'S'
+ ROM_T           = $34                             ; ROM character 'T'
+ ROM_W           = $37                             ; ROM character 'W'
+ ROM_Y           = $39                             ; ROM character 'Y'
 
  ;*** Custom character set constants ********************************************
- CCS.COL1        = $40                             ; COLOR1 bits for text in GR1/2 text mode
- CCS.COL2        = $80                             ; COLOR2 bits for text in GR1/2 text mode
- CCS.COL3        = $C0                             ; COLOR3 bits for text in GR1/2 text mode
+ CCS_COL1        = $40                             ; COLOR1 bits for text in GR1/2 text mode
+ CCS_COL2        = $80                             ; COLOR2 bits for text in GR1/2 text mode
+ CCS_COL3        = $C0                             ; COLOR3 bits for text in GR1/2 text mode
 
- CCS.0           = 0                               ; Custom character '0'
- CCS.1           = 1                               ; Custom character '1'
- CCS.2           = 2                               ; Custom character '2'
- CCS.3           = 3                               ; Custom character '3'
- CCS.4           = 4                               ; Custom character '4'
- CCS.5           = 5                               ; Custom character '5'
- CCS.6           = 6                               ; Custom character '6'
- CCS.7           = 7                               ; Custom character '7'
- CCS.8           = 8                               ; Custom character '8'
- CCS.9           = 9                               ; Custom character '9'
- CCS.SPC         = 10                              ; Custom character ' '
- CCS.COLON       = 11                              ; Custom character ':'
- CCS.BORDERSW    = 12                              ; Custom character 'BORDER SOUTHWEST'
- CCS.E           = 13                              ; Custom character 'E'
- CCS.INF         = 14                              ; Custom character 'INFINITY'
- CCS.MINUS       = 15                              ; Custom character '-'
- CCS.PLUS        = 16                              ; Custom character '+'
- CCS.PHI         = 17                              ; Custom character 'PHI'
- CCS.V           = 18                              ; Custom character 'V'
- CCS.R           = 19                              ; Custom character 'R'
- CCS.THETA       = 20                              ; Custom character 'THETA'
- CCS.K           = 21                              ; Custom character 'K'
- CCS.T           = 22                              ; Custom character 'T'
- CCS.C           = 23                              ; Custom character 'C'
- CCS.BORDERS     = 24                              ; Custom character 'BORDER SOUTH'
- CCS.BORDERW     = 25                              ; Custom character 'BORDER WEST'
- CCS.CORNERSW    = 26                              ; Custom character 'CORNER SOUTHWEST'
- CCS.STARBASE    = 27                              ; Custom character 'STARBASE SECTOR'
- CCS.4ZYLONS     = 28                              ; Custom character '4-ZYLON SECTOR'
- CCS.3ZYLONS     = 29                              ; Custom character '3-ZYLON SECTOR'
- CCS.2ZYLONS     = 30                              ; Custom character '2-ZYLON SECTOR'
+ CCS_0           = 0                               ; Custom character '0'
+ CCS_1           = 1                               ; Custom character '1'
+ CCS_2           = 2                               ; Custom character '2'
+ CCS_3           = 3                               ; Custom character '3'
+ CCS_4           = 4                               ; Custom character '4'
+ CCS_5           = 5                               ; Custom character '5'
+ CCS_6           = 6                               ; Custom character '6'
+ CCS_7           = 7                               ; Custom character '7'
+ CCS_8           = 8                               ; Custom character '8'
+ CCS_9           = 9                               ; Custom character '9'
+ CCS_SPC         = 10                              ; Custom character ' '
+ CCS_COLON       = 11                              ; Custom character ':'
+ CCS_BORDERSW    = 12                              ; Custom character 'BORDER SOUTHWEST'
+ CCS_E           = 13                              ; Custom character 'E'
+ CCS_INF         = 14                              ; Custom character 'INFINITY'
+ CCS_MINUS       = 15                              ; Custom character '-'
+ CCS_PLUS        = 16                              ; Custom character '+'
+ CCS_PHI         = 17                              ; Custom character 'PHI'
+ CCS_V           = 18                              ; Custom character 'V'
+ CCS_R           = 19                              ; Custom character 'R'
+ CCS_THETA       = 20                              ; Custom character 'THETA'
+ CCS_K           = 21                              ; Custom character 'K'
+ CCS_T           = 22                              ; Custom character 'T'
+ CCS_C           = 23                              ; Custom character 'C'
+ CCS_BORDERS     = 24                              ; Custom character 'BORDER SOUTH'
+ CCS_BORDERW     = 25                              ; Custom character 'BORDER WEST'
+ CCS_CORNERSW    = 26                              ; Custom character 'CORNER SOUTHWEST'
+ CCS_STARBASE    = 27                              ; Custom character 'STARBASE SECTOR'
+ CCS_4ZYLONS     = 28                              ; Custom character '4-ZYLON SECTOR'
+ CCS_3ZYLONS     = 29                              ; Custom character '3-ZYLON SECTOR'
+ CCS_2ZYLONS     = 30                              ; Custom character '2-ZYLON SECTOR'
 
  ;*** Custom character set ******************************************************
  ;
@@ -2713,7 +2713,7 @@
                  .BYTE $80,$B0,$98,$BE,$98,$B0,$80,$FF ; Custom character '2-ZYLON SECTOR'
 
  ;*** Header text of Long-Range Scan view (shares spaces with following header) *
- LRSHEADER       .BYTE $00,$00,$6C,$6F,$6E,$67,$00,$72 ; "  LONG RANGE SCAN"
+ LRSHEADER       .BYTE $00,$00,$6C,$6F,$6E,$67,$00,$72 ; "  LLONG RANGE SCAN"
                  .BYTE $61,$6E,$67,$65,$00,$73,$63,$61
                  .BYTE $6E
 
@@ -2944,7 +2944,7 @@
                  LDA #0                  ; ANTIC: Set PM memory base address
                  STA PMBASE              ;
 
-                 LDA #NUMSPCOBJ.NORM-1   ; Set normal number of space objects
+                 LDA #NUMSPCOBJ_NORM-1   ; Set normal number of space objects
                  STA MAXSPCOBJIND        ; (5 PLAYER spc objs + 12 PLAYFIELD spc objs (stars))
 
                  LDX MISSIONLEVEL        ; Set title phrase
@@ -3010,7 +3010,7 @@
  ; (10) Add the proper velocity vector of all space objects to their position
  ;      vector (except for stars, which do not have any proper motion).
  ;
- ;      BUG (at $A419): The correct maximum loop index is NUMSPCOBJ.ALL*3 = 147
+ ;      BUG (at $A419): The correct maximum loop index is NUMSPCOBJ_ALL*3 = 147
  ;      instead of 144. Suggested fix: Replace CMP #144 with CMP #147.
  ;
  ; (11) Correct the position vector components (coordinates) of all PLAYER space
@@ -3140,19 +3140,19 @@
  ;
  ; (33) Jump back to the start of the game loop for the next game loop iteration.
 
- L.HEIGHTCNT     = $6A                   ; Height counter during copying a PLAYER shape
- L.ZPOSOFF       = $6E                   ; Offset to z-coordinate
- L.VELOCITYHI    = $6B                   ; Velocity vector component (high byte)
- L.VECCOMPIND    = $6A                   ; Position vector component index. Used values are:
+ L_HEIGHTCNT     = $6A                   ; Height counter during copying a PLAYER shape
+ L_ZPOSOFF       = $6E                   ; Offset to z-coordinate
+ L_VELOCITYHI    = $6B                   ; Velocity vector component (high byte)
+ L_VECCOMPIND    = $6A                   ; Position vector component index. Used values are:
                                          ;   0 -> z-component
                                          ;   1 -> x-component
                                          ;   2 -> y-component
- L.RANGEINDEX    = $6A                   ; Range index for space object, computed from the
+ L_RANGEINDEX    = $6A                   ; Range index for space object, computed from the
                                          ; distance to our starship. Used to pick the shape
                                          ; cell index of the PLAYERs shape data and shape
                                          ; height. Used values are: 0..15.
- L.FOURCOLORPIX  = $6A                   ; 1-byte bit pattern for 4 pixels of same color
- L.COLORMASK     = $6B                   ; Color/brightness to modify PLAYER color
+ L_FOURCOLORPIX  = $6A                   ; 1-byte bit pattern for 4 pixels of same color
+ L_COLORMASK     = $6B                   ; Color/brightness to modify PLAYER color
 
  ;*** (1) Synchronize game loop with execution of VBI ***************************
  GAMELOOP        LDA ISVBISYNC           ; Wait for execution of VBI
@@ -3165,7 +3165,7 @@
                  LDA OLDMAXSPCOBJIND     ; Skip if no space objects in use
                  BEQ SKIP002             ;
 
-                 LDX #NUMSPCOBJ.PL-1     ; Loop over all PLAYFIELD space objs (X index > 4)
+                 LDX #NUMSPCOBJ_PL-1     ; Loop over all PLAYFIELD space objs (X index > 4)
  LOOP002         INX                     ;
                  LDY PIXELROW,X          ; Load pixel row number of PLAYFIELD space object
 
@@ -3212,24 +3212,24 @@
                  STA (MEMPTR),Y          ; Store byte in PLAYFIELD memory
 
                  DEX                     ;
-                 CPX #NUMSPCOBJ.PL-1     ;
+                 CPX #NUMSPCOBJ_PL-1     ;
                  BNE LOOP003             ; Next PLAYFIELD space object
 
  ;*** (4) Clear PLAYFIELD center if idle counter is up (?) **********************
                                          ; PLAYFIELD addresses of...
- PFMEM.C76R49    = PFMEM+49*40+76/4      ; ...pixel column number 76, row number 49
- PFMEM.C80R49    = PFMEM+49*40+80/4      ; ...pixel column number 80, row number 49
- PFMEM.C76R50    = PFMEM+50*40+76/4      ; ...pixel column number 76, row number 50
- PFMEM.C80R50    = PFMEM+50*40+80/4      ; ...pixel column number 80, row number 50
+ PFMEM_C76R49    = PFMEM+49*40+76/4      ; ...pixel column number 76, row number 49
+ PFMEM_C80R49    = PFMEM+49*40+80/4      ; ...pixel column number 80, row number 49
+ PFMEM_C76R50    = PFMEM+50*40+76/4      ; ...pixel column number 76, row number 50
+ PFMEM_C80R50    = PFMEM+50*40+80/4      ; ...pixel column number 80, row number 50
 
  SKIP003         LDA IDLECNTHI           ; Skip if idle counter not negative
                  BPL SKIP004             ;
 
                  LDA #0                  ; Clear pixels of 8 x 2 pixel rectangle...
-                 STA PFMEM.C76R50        ; ...@ column number 76, row number 49 (?)
-                 STA PFMEM.C80R50        ;
-                 STA PFMEM.C80R49        ;
-                 STA PFMEM.C76R49        ;
+                 STA PFMEM_C76R50        ; ...@ column number 76, row number 49 (?)
+                 STA PFMEM_C80R50        ;
+                 STA PFMEM_C80R49        ;
+                 STA PFMEM_C76R49        ;
 
  ;*** (5) Clear all PLAYER shapes ***********************************************
  SKIP004         LDA #0                  ; Clear shape of PLAYER4
@@ -3277,16 +3277,16 @@
                  STX PL4ROW              ;
 
                  LDA PL4HEIGHTNEW        ; Update PLAYER4 shape height
-                 STA L.HEIGHTCNT         ;
+                 STA L_HEIGHTCNT         ;
                  STA PL4HEIGHT           ;
 
  LOOP009         LDA PLSHAP1TAB,Y        ; Load PLAYER4 shape byte from shape data table
                  BCS SKIP005             ; Skip if PLAYER4 not PHOTON TORPEDO (shape type 0)
-                 AND RANDOM              ; AND random bits to shape byte
+                 AND LRANDOM              ; AND random bits to shape byte
  SKIP005         STA PL4DATA,X           ; Store shape byte in PLAYER4 data area
                  INY                     ;
                  INX                     ;
-                 DEC L.HEIGHTCNT         ;
+                 DEC L_HEIGHTCNT         ;
                  BPL LOOP009             ; Next row of PLAYER4 shape
 
                  LDA PL3SHAPTYPE         ; Repeat above with PLAYER3
@@ -3295,15 +3295,15 @@
                  LDX PL3ROWNEW           ;
                  STX PL3ROW              ;
                  LDA PL3HEIGHTNEW        ;
-                 STA L.HEIGHTCNT         ;
+                 STA L_HEIGHTCNT         ;
                  STA PL3HEIGHT           ;
  LOOP010         LDA PLSHAP1TAB,Y        ;
                  BCS SKIP006             ;
-                 AND RANDOM              ;
+                 AND LRANDOM              ;
  SKIP006         STA PL3DATA,X           ;
                  INX                     ;
                  INY                     ;
-                 DEC L.HEIGHTCNT         ;
+                 DEC L_HEIGHTCNT         ;
                  BPL LOOP010             ;
 
                  LDA PL2SHAPTYPE         ; Repeat above with PLAYER2
@@ -3312,41 +3312,41 @@
                  LDX PL2ROWNEW           ;
                  STX PL2ROW              ;
                  LDA PL2HEIGHTNEW        ;
-                 STA L.HEIGHTCNT         ;
+                 STA L_HEIGHTCNT         ;
                  STA PL2HEIGHT           ;
  LOOP011         LDA PLSHAP1TAB,Y        ;
                  BCS SKIP007             ;
-                 AND RANDOM              ;
+                 AND LRANDOM              ;
  SKIP007         STA PL2DATA,X           ;
                  INX                     ;
                  INY                     ;
-                 DEC L.HEIGHTCNT         ;
+                 DEC L_HEIGHTCNT         ;
                  BPL LOOP011             ;
 
                  LDY PL1SHAPOFF          ; Repeat above with PLAYER1 (without torpedo part)
                  LDX PL1ROWNEW           ;
                  STX PL1ROW              ;
                  LDA PL1HEIGHTNEW        ;
-                 STA L.HEIGHTCNT         ;
+                 STA L_HEIGHTCNT         ;
                  STA PL1HEIGHT           ;
  LOOP012         LDA PLSHAP2TAB,Y        ;
                  STA PL1DATA,X           ;
                  INX                     ;
                  INY                     ;
-                 DEC L.HEIGHTCNT         ;
+                 DEC L_HEIGHTCNT         ;
                  BPL LOOP012             ;
 
                  LDY PL0SHAPOFF          ; Repeat above with PLAYER0 (without torpedo part)
                  LDX PL0ROWNEW           ;
                  STX PL0ROW              ;
                  LDA PL0HEIGHTNEW        ;
-                 STA L.HEIGHTCNT         ;
+                 STA L_HEIGHTCNT         ;
                  STA PL0HEIGHT           ;
  LOOP013         LDA PLSHAP2TAB,Y        ;
                  STA PL0DATA,X           ;
                  INX                     ;
                  INY                     ;
-                 DEC L.HEIGHTCNT         ;
+                 DEC L_HEIGHTCNT         ;
                  BPL LOOP013             ;
 
  ;*** (7) Update PLAYER horizontal positions ************************************
@@ -3378,18 +3378,18 @@
 
                  STA JOYSTICKDELTA       ; Save JOYSTICKX (used in subroutine ROTATE)
                  LDY MAXSPCOBJIND        ; Loop over all space objects in use
- LOOP014         STY L.ZPOSOFF           ; Save offset to z-coordinate
+ LOOP014         STY L_ZPOSOFF           ; Save offset to z-coordinate
                  CLC                     ;
 
                  TYA                     ;
                  TAX                     ; X := offset to z-coordinate
-                 ADC #NUMSPCOBJ.ALL      ;
+                 ADC #NUMSPCOBJ_ALL      ;
                  TAY                     ; Y := offset to x-coordinate
                  JSR ROTATE              ; Calc new x-coordinate (horizontal rot @ y-axis)
 
                  TYA                     ;
                  TAX                     ; X := offset to x-coordinate
-                 LDY L.ZPOSOFF           ; Y := offset to z-coordinate
+                 LDY L_ZPOSOFF           ; Y := offset to z-coordinate
                  JSR ROTATE              ; Calc new z-coordinate (horizontal rot @ y-axis)
                  DEY                     ;
                  BPL LOOP014             ; Next space object
@@ -3400,25 +3400,25 @@
 
                  STA JOYSTICKDELTA       ; Save JOYSTICKY (used in subroutine ROTATE)
                  LDY MAXSPCOBJIND        ; Loop over all space objects in use
- LOOP015         STY L.ZPOSOFF           ; Save offset to z-coordinate
+ LOOP015         STY L_ZPOSOFF           ; Save offset to z-coordinate
                  CLC                     ;
 
                  TYA                     ;
                  TAX                     ; X := offset to z-coordinate
-                 ADC #NUMSPCOBJ.ALL*2    ;
+                 ADC #NUMSPCOBJ_ALL*2    ;
                  TAY                     ; Y := offset to y-coordinate
                  JSR ROTATE              ; Calc new y-coordinate (vertical rot @ x-axis)
 
                  TYA                     ;
                  TAX                     ; X := offset to y-coordinate
-                 LDY L.ZPOSOFF           ; Y := offset to z-coordinate
+                 LDY L_ZPOSOFF           ; Y := offset to z-coordinate
                  JSR ROTATE              ; Calc new z-coordinate (vertical rot @ x-axis)
                  DEY                     ;
                  BPL LOOP015             ; Next space object
 
  ;*** (9) Move all space objects along z-axis (toward our starship) *************
  SKIP009         LDX MAXSPCOBJIND        ; Loop over all space objects in use
- LOOP016         CPX #NUMSPCOBJ.PL       ; Skip if PLAYFIELD space object (X index > 4)
+ LOOP016         CPX #NUMSPCOBJ_PL       ; Skip if PLAYFIELD space object (X index > 4)
                  BCS SKIP010             ;
 
                  LDA PL0SHAPTYPE,X       ; Skip if next PLAYER space obj is PHOTON TORPEDO (!)
@@ -3440,7 +3440,7 @@
 
  ;*** (10) Add space object's velocity vector to space object's position vector *
                  LDX MAXSPCOBJIND        ; Loop over all space objects in use
- LOOP017         CPX #NUMSPCOBJ.NORM-1   ; Skip if space object is star (X index 5..16)...
+ LOOP017         CPX #NUMSPCOBJ_NORM-1   ; Skip if space object is star (X index 5..16)...
                  BNE SKIP012             ; ...because stars don't move by themselves
                  LDX #4                  ;
 
@@ -3448,7 +3448,7 @@
  LOOP018         TAY                     ; Loop over all 3 coordinates
 
                  LDA #0                  ; Expand 8-bit velocity vector component to 16-bit:
-                 STA L.VELOCITYHI        ; ...16-bit velocity (high byte) = L.VELOCITYHI := 0
+                 STA L_VELOCITYHI        ; ...16-bit velocity (high byte) = L_VELOCITYHI := 0
                  LDA ZVEL,Y              ; ...16-bit velocity (low byte)  = A := ZVEL,Y
                  BPL SKIP013             ; Skip if 16-bit velocity >= 0 (positive)
 
@@ -3456,21 +3456,21 @@
                  CLC                     ; ...calculate two's-complement of 16-bit velocity
                  ADC #1                  ;
                  BCS SKIP013             ;
-                 DEC L.VELOCITYHI        ;
+                 DEC L_VELOCITYHI        ;
 
  SKIP013         CLC                     ; New coordinate := old coordinate + 16-bit velocity
                  ADC ZPOSLO,Y            ; (signed 24-bit addition)
                  STA ZPOSLO,Y            ;
                  LDA ZPOSHI,Y            ;
-                 ADC L.VELOCITYHI        ;
+                 ADC L_VELOCITYHI        ;
                  STA ZPOSHI,Y            ;
                  LDA ZPOSSIGN,Y          ;
-                 ADC L.VELOCITYHI        ;
+                 ADC L_VELOCITYHI        ;
                  STA ZPOSSIGN,Y          ;
 
                  TYA                     ;
                  CLC                     ;
-                 ADC #NUMSPCOBJ.ALL      ;
+                 ADC #NUMSPCOBJ_ALL      ;
                  CMP #144                ; (!)
                  BCC LOOP018             ; Next coordinate
 
@@ -3478,12 +3478,12 @@
                  BPL LOOP017             ; Next space object
 
  ;*** (11) Correct over/underflow of PLAYER space objects' position vector ******
-                 LDY #NUMSPCOBJ.PL-1     ;
+                 LDY #NUMSPCOBJ_PL-1     ;
  LOOP019         TYA                     ; Loop over all PLAYER space objects (X index < 5)
                  TAX                     ;
 
                  LDA #2                  ; Loop over all 3 coordinates
-                 STA L.VECCOMPIND        ;
+                 STA L_VECCOMPIND        ;
 
  LOOP020         LDA ZPOSSIGN,X          ; Load sign of coordinate
                  CMP #2                  ;
@@ -3499,9 +3499,9 @@
 
  SKIP015         TXA                     ;
                  CLC                     ;
-                 ADC #NUMSPCOBJ.ALL      ;
+                 ADC #NUMSPCOBJ_ALL      ;
                  TAX                     ;
-                 DEC L.VECCOMPIND        ;
+                 DEC L_VECCOMPIND        ;
                  BPL LOOP020             ; Next coordinate
 
                  DEY                     ;
@@ -3667,7 +3667,7 @@
  ;     of certain PLAYERs, such as using random colors for Zylon basestars, or
  ;     using the precomputed pulsating brightness value for a starbase.
 
- SKIP022         LDX #NUMSPCOBJ.PL       ; Loop over all PLAYER space objects (X index < 5)
+ SKIP022         LDX #NUMSPCOBJ_PL       ; Loop over all PLAYER space objects (X index < 5)
  LOOP023         DEX                     ;
                  BPL SKIP023             ; Jump into loop body below
                  JMP JUMP003             ; Loop is finished, skip loop body
@@ -3684,7 +3684,7 @@
                  CPX #3                  ; Next PLAYER space object if PLAYER0..2
                  BCC LOOP023             ;
 
- LOOP024         LDA RANDOM              ; Prep random color mask for warp markers/LRS blips
+ LOOP024         LDA LRANDOM              ; Prep random color mask for warp markers/LRS blips
                  LDY #$F2                ; Prep magic z-coordinate for warp markers/LRS blips
                  BMI SKIP026             ; Unconditional jump
 
@@ -3719,7 +3719,7 @@
  SKIP025         LDA COUNT256            ; Prep color mask with B3..0 of counter
                  AND #$0F                ; ...(= brightness bits cause pulsating brightness)
 
- SKIP026         STA L.COLORMASK         ; Store color mask
+ SKIP026         STA L_COLORMASK         ; Store color mask
 
  ;*** Check if PLAYER is below PLAYFIELD bottom edge ****************************
                  TYA                     ; A := z-coordinate (high byte)
@@ -3739,7 +3739,7 @@
                  CMP #16                 ; Load z-coordinate (high byte) and...
                  BCC SKIP028             ;
                  LDA #15                 ;
- SKIP028         STA L.RANGEINDEX        ; ...trim to range index in 0..15
+ SKIP028         STA L_RANGEINDEX        ; ...trim to range index in 0..15
 
  ;*** Update PLAYER shape offset and height *************************************
                  ORA PL0SHAPTYPE,X       ; Calc offset to shape table (shape type+range index)
@@ -3759,11 +3759,11 @@
                  LDA PLSHAPCOLORTAB,Y    ;
                  CPY #8                  ; Pick random color if ZYLON BASESTAR (shape type 8)
                  BNE SKIP029             ;
-                 EOR RANDOM              ;
- SKIP029         LDY L.RANGEINDEX        ;
+                 EOR LRANDOM              ;
+ SKIP029         LDY L_RANGEINDEX        ;
                  EOR PLSHAPBRITTAB,Y     ; Pick brightness (B3..0) using range index and merge
 
-                 EOR L.COLORMASK         ; Modify color/brightness of PLAYER
+                 EOR L_COLORMASK         ; Modify color/brightness of PLAYER
 
                  LDY PLCOLOROFFTAB,X     ; Get PLAYER color offset
                  STA PL0COLOR,Y          ; Store color in PLAYER color register
@@ -3810,17 +3810,17 @@
 
                  TAY                     ;
                  LDA FOURCOLORPIXEL,Y    ; Load 1-byte bit pattern for 4 pixels of same color
-                 STA L.FOURCOLORPIX      ; ...and temporarily save it
+                 STA L_FOURCOLORPIX      ; ...and temporarily save it
 
                  LDA PIXELCOLUMN,X       ; Load pixel mask to mask 1 pixel out of 4 pixels:
                  AND #$03                ; Use B1..0 from pixel column number...
                  TAY                     ;
                  LDA PIXELMASKTAB,Y      ; ...to pick mask to filter pixel in byte
-                 AND L.FOURCOLORPIX      ; ...AND with 1-byte bit pattern for 4 pixels
+                 AND L_FOURCOLORPIX      ; ...AND with 1-byte bit pattern for 4 pixels
                  STA PIXELBYTE,X         ; ...store byte (used in repaint step of game loop)
 
                  DEX                     ;
-                 CPX #NUMSPCOBJ.PL       ;
+                 CPX #NUMSPCOBJ_PL       ;
                  BCS LOOP025             ; Next PLAYFIELD space object
 
  ;*** (18) Skip input handling if in demo mode **********************************
@@ -4049,7 +4049,7 @@
                  STA CHBASE              ;
 
                  LDX BGRCOLOR            ; Preload BACKGROUND color
-                 LDA RANDOM              ; Preload random number
+                 LDA LRANDOM              ; Preload random number
                  BIT HITBADNESS          ; Check if our starship was hit
                  BVC SKIP044             ; If HITBADNESS has a value of...
                  BMI SKIP043             ; $00 -> NO HIT             (BGR color := unchanged)
@@ -4273,14 +4273,14 @@
  ;   PENROW    ($A5) = Start pixel row number of line
  ;   PENCOLUMN ($A6) = Start pixel column number of line
 
- L.PIXELBYTEOFF  = $6A                   ; Within-row-offset to byte with pixel in PLAYFIELD
- L.BITPAT        = $6B                   ; 1-byte bit pattern for 4 pixels of same color
- L.DIRSAV        = $6E                   ; Saves DIRLEN
+ L_PIXELBYTEOFF  = $6A                   ; Within-row-offset to byte with pixel in PLAYFIELD
+ L_BITPAT        = $6B                   ; 1-byte bit pattern for 4 pixels of same color
+ L_DIRSAV        = $6E                   ; Saves DIRLEN
 
  DRAWLINE        LDA #$55                ; Copy 1-byte bit pattern for 4 pixels of COLOR1
- DRAWLINE2       STA L.BITPAT            ;
+ DRAWLINE2       STA L_BITPAT            ;
                  LDA DIRLEN              ; Copy direction (and length) of line
-                 STA L.DIRSAV            ;
+                 STA L_DIRSAV            ;
                  AND #$7F                ; Strip direction bit
                  STA DIRLEN              ; Store length of line
 
@@ -4293,19 +4293,19 @@
                  LDA PENCOLUMN           ; Calc and store pen's byte-within-row offset
                  LSR A                   ;
                  LSR A                   ;
-                 STA L.PIXELBYTEOFF      ;
+                 STA L_PIXELBYTEOFF      ;
 
                  LDA PENCOLUMN           ; Calc pixel-within-byte index
                  AND #$03                ;
                  TAY                     ;
 
                  LDA PIXELMASKTAB,Y      ; Pick mask to filter pixel in byte
-                 AND L.BITPAT            ; ...AND with bit pattern for 4 pixels of same color
-                 LDY L.PIXELBYTEOFF      ;
+                 AND L_BITPAT            ; ...AND with bit pattern for 4 pixels of same color
+                 LDY L_PIXELBYTEOFF      ;
                  ORA (MEMPTR),Y          ; Blend byte with new pixel and PLAYFIELD byte
                  STA (MEMPTR),Y          ; ...and store it back in PLAYFIELD memory
 
-                 BIT L.DIRSAV            ; Check direction bit B7
+                 BIT L_DIRSAV            ; Check direction bit B7
                  BPL SKIP050             ;
                  INC PENROW              ; If B7 = 1 -> Increment pen's pixel row number
                  BNE SKIP051             ;
@@ -4423,7 +4423,7 @@
  ;         $ = Blip's top-left reference
  ;             position
 
- L.SHIFTSHAP     = $6C                   ; Saves shifted byte of blip shape bit pattern
+ L_SHIFTSHAP     = $6C                   ; Saves shifted byte of blip shape bit pattern
 
  UPDATTCOMP      LDX TRACKDIGIT          ; Load index of tracked space object
                  LDY BLIPCYCLECNT        ; Load blip cycle counter
@@ -4435,7 +4435,7 @@
                  STA PENCOLUMN           ; ...with top position of blip shape
                  LDA BLIPSHAPTAB,Y       ; Load bit pattern of one row of blip shape
  LOOP030         ASL A                   ; Shift bit pattern one position to the left
-                 STA L.SHIFTSHAP         ; Temporarily save shifted shape byte
+                 STA L_SHIFTSHAP         ; Temporarily save shifted shape byte
                  BCC SKIP052             ; Skip if shifted-out bit = 0
 
                  LDA #$81                ; Store "draw a line of 1 pixel length downward"
@@ -4447,7 +4447,7 @@
                  JSR DRAWLINE2           ; Draw pixel on PLAYFIELD
 
  SKIP052         INC PENCOLUMN           ; Move pen one pixel to the right
-                 LDA L.SHIFTSHAP         ; Reload shifted shape byte
+                 LDA L_SHIFTSHAP         ; Reload shifted shape byte
                  BNE LOOP030             ; Next horizontal pixel of blip shape
 
                  INC BLIPROW             ; Move pen one pixel downward
@@ -4502,11 +4502,11 @@
 
  ;*** Filter Attack Computer Display frame area *********************************
                                          ; PLAYFIELD address of top-left of Attack Computer
- PFMEM.C120R71   = PFMEM+71*40+120/4     ; Display's inner frame @ pixel column 120, row 71
+ PFMEM_C120R71   = PFMEM+71*40+120/4     ; Display's inner frame @ pixel column 120, row 71
 
- SKIP059         LDA #<PFMEM.C120R71     ; Point MEMPTR to start of frame's...
+ SKIP059         LDA #<PFMEM_C120R71     ; Point MEMPTR to start of frame's...
                  STA MEMPTR              ; ...inner top-left corner at column 120, row 71...
-                 LDA #>PFMEM.C120R71     ; ...in PLAYFIELD memory
+                 LDA #>PFMEM_C120R71     ; ...in PLAYFIELD memory
                  STA MEMPTR+1            ;
 
                  LDX #14                 ; Traverse a 28 x 15 pixel rect of PLAYFIELD memory
@@ -4533,14 +4533,14 @@
 
  ;*** Draw lock-on markers ******************************************************
                                          ; PLAYFIELD addresses of
- PFMEM.C120R76   = PFMEM+76*40+120/4     ; ...x lock-on marker @ pixel column 120, row 76
- PFMEM.C144R76   = PFMEM+76*40+144/4     ; ...x lock-on marker @ pixel column 144, row 76
- PFMEM.C120R80   = PFMEM+80*40+120/4     ; ...y lock-on marker @ pixel column 120, row 80
- PFMEM.C144R80   = PFMEM+80*40+144/4     ; ...y lock-on marker @ pixel column 144, row 80
- PFMEM.C128R84   = PFMEM+84*40+128/4     ; ...z lock-on marker @ pixel column 128, row 84
- PFMEM.C128R85   = PFMEM+85*40+128/4     ; ...z lock-on marker @ pixel column 128, row 85
- PFMEM.C136R84   = PFMEM+84*40+136/4     ; ...z lock-on marker @ pixel column 136, row 84
- PFMEM.C136R85   = PFMEM+85*40+136/4     ; ...z lock-on marker @ pixel column 136, row 85
+ PFMEM_C120R76   = PFMEM+76*40+120/4     ; ...x lock-on marker @ pixel column 120, row 76
+ PFMEM_C144R76   = PFMEM+76*40+144/4     ; ...x lock-on marker @ pixel column 144, row 76
+ PFMEM_C120R80   = PFMEM+80*40+120/4     ; ...y lock-on marker @ pixel column 120, row 80
+ PFMEM_C144R80   = PFMEM+80*40+144/4     ; ...y lock-on marker @ pixel column 144, row 80
+ PFMEM_C128R84   = PFMEM+84*40+128/4     ; ...z lock-on marker @ pixel column 128, row 84
+ PFMEM_C128R85   = PFMEM+85*40+128/4     ; ...z lock-on marker @ pixel column 128, row 85
+ PFMEM_C136R84   = PFMEM+84*40+136/4     ; ...z lock-on marker @ pixel column 136, row 84
+ PFMEM_C136R85   = PFMEM+85*40+136/4     ; ...z lock-on marker @ pixel column 136, row 85
 
                  LDA LOCKONLIFE          ; If lock-on lifetime expired redraw lock-on markers
                  BEQ SKIP061             ;
@@ -4555,8 +4555,8 @@
                  BCS SKIP062             ;
 
                  LDA #$AA                ; Draw x lock-on marker (4 horiz. pixels of COLOR2)
-                 STA PFMEM.C120R76       ; ...at pixel column 120, row 76
-                 STA PFMEM.C144R76       ; ...at pixel column 144, row 76
+                 STA PFMEM_C120R76       ; ...at pixel column 120, row 76
+                 STA PFMEM_C144R76       ; ...at pixel column 144, row 76
 
                  LDA BLIPROW             ; Skip y and z lock-on marker if blip's...
                  CMP #75                 ; ...top-left pixel row number not in 75...78
@@ -4565,18 +4565,18 @@
                  BCS SKIP062             ;
 
                  LDA #$AA                ; Draw y lock-on marker (4 horiz. pixels of COLOR2)
-                 STA PFMEM.C120R80       ; ...at pixel column 120, row 80
-                 STA PFMEM.C144R80       ; ...at pixel column 144, row 80
+                 STA PFMEM_C120R80       ; ...at pixel column 120, row 80
+                 STA PFMEM_C144R80       ; ...at pixel column 144, row 80
 
                  LDA ZPOSHI,X            ; Skip z lock-on marker if z >= +$0C** (>= 3072) <KM>
                  CMP #12                 ;
                  BCS SKIP062             ;
 
                  LDY #$A0                ; Draw z lock-on marker (2 horiz. pixels of COLOR2)
-                 STY PFMEM.C128R84       ; ...at pixel column 128, row 84 (prep lock-on flag)
-                 STY PFMEM.C128R85       ; ...at pixel column 128, row 85
-                 STY PFMEM.C136R84       ; ...at pixel column 136, row 84
-                 STY PFMEM.C136R85       ; ...at pixel column 136, row 85
+                 STY PFMEM_C128R84       ; ...at pixel column 128, row 84 (prep lock-on flag)
+                 STY PFMEM_C128R85       ; ...at pixel column 128, row 85
+                 STY PFMEM_C136R84       ; ...at pixel column 136, row 84
+                 STY PFMEM_C136R85       ; ...at pixel column 136, row 85
 
  SKIP062         STY ISINLOCKON          ; Store lock-on flag (> 0 -> Tracked obj locked on)
                  RTS                     ; Return
@@ -4750,7 +4750,7 @@
  SKIP063         LDA #3                  ; Track Hyperwarp Target Marker (PLAYER3)
                  STA TRACKDIGIT          ;
 
-                 LDA #SHAP.HYPERWARP     ; PLAYER3 is HYPERWARP TARGET MARKER (shape type 9)
+                 LDA #SHAP_HYPERWARP     ; PLAYER3 is HYPERWARP TARGET MARKER (shape type 9)
                  STA PL3SHAPTYPE         ;
                  STA PL3LIFE             ; PLAYER3 lifetime := 144 game loops
 
@@ -4776,7 +4776,7 @@
                  LDA MISSIONLEVEL        ; Skip if NOVICE mission
                  BEQ SKIP065             ;
 
-                 LDA RANDOM              ; Prep random number
+                 LDA LRANDOM              ; Prep random number
                  LDY SHIPVIEW            ; Skip if in Front view
                  BEQ SKIP064             ;
 
@@ -4787,12 +4787,12 @@
                  BCS SKIP066             ;
 
  ;*** Veer off Hyperwarp Target Marker and return *******************************
- SKIP065         LDA RANDOM              ; Prep random x-velocity of Hyperwarp Target Marker
+ SKIP065         LDA LRANDOM              ; Prep random x-velocity of Hyperwarp Target Marker
                  ORA #$10                ; Velocity value >= 16 <KM/H>
                  AND VEERMASK            ; Limit velocity value by mission level
                  STA PL3XVEL             ; PLAYER3 x-velocity := velocity value
 
-                 LDA RANDOM              ; Prep random y-velocity of Hyperwarp Target Marker
+                 LDA LRANDOM              ; Prep random y-velocity of Hyperwarp Target Marker
                  ORA #$10                ; Velocity value >= 16 <KM/H>
                  AND VEERMASK            ; Limit velocity value by mission level
                  STA PL3YVEL             ; PLAYER3 y-velocity := velocity value
@@ -4855,15 +4855,15 @@
                  STA PL2ZVEL,Y           ; Starbase velocity vector component := 0 <KM/H>
                  LDA #1                  ;
                  STA PL2ZPOSSIGN,Y       ; Starbase coordinate sign := + (positive)
-                 LDA RANDOM              ; Prep random number...
+                 LDA LRANDOM              ; Prep random number...
                  AND VICINITYMASK        ; ...limit number range by vicinity mask, then...
                  STA PL2ZPOSHI,Y         ; ...store in starbase coordinate (high byte)
 
                  TYA                     ;
                  CLC                     ;
-                 ADC #NUMSPCOBJ.ALL      ;
+                 ADC #NUMSPCOBJ_ALL      ;
                  TAY                     ;
-                 CMP #NUMSPCOBJ.ALL*3    ;
+                 CMP #NUMSPCOBJ_ALL*3    ;
                  BCC LOOP033             ; Next starbase coordinate
 
                  LDA PL2ZPOSHI           ; Force starbase z-coordinate >= +$71** <KM>
@@ -4954,7 +4954,7 @@
  ;     $17 -> "HYPERWARP ABORTED"
  ;     $1B -> "HYPERSPACE"
 
- CLEANUPWARP     LDA #NUMSPCOBJ.NORM-1   ; Set normal number of space objects
+ CLEANUPWARP     LDA #NUMSPCOBJ_NORM-1   ; Set normal number of space objects
                  STA MAXSPCOBJIND        ; (5 PLAYER spc objs + 12 PLAYFIELD spc objs (stars))
 
                  LDA #0                  ;
@@ -5013,8 +5013,8 @@
  ; <KM> in intervals of +80 (+$0050) <KM>. Their velocity vector components are
  ; set to 0 <KM/H>.
 
- L.RANGE         = $68                   ; z-coordinate of star in star trail (16-bit value)
- L.TRAILCNT      = $6E                   ; Star's index in star trail. Used values are: 0..5.
+ L_RANGE         = $68                   ; z-coordinate of star in star trail (16-bit value)
+ L_TRAILCNT      = $6E                   ; Star's index in star trail. Used values are: 0..5.
 
  INITTRAIL       DEC TRAILDELAY          ; Decrement star trail delay
                  BPL SKIP074             ; Return if delay still counting
@@ -5022,7 +5022,7 @@
                  LDA #1                  ; Turn on hyperwarp velocity
                  STA VELOCITYHI          ;
 
-                 LDA #NUMSPCOBJ.ALL-1    ; Max index of space objects (for star trail stars)
+                 LDA #NUMSPCOBJ_ALL-1    ; Max index of space objects (for star trail stars)
                  STA MAXSPCOBJIND        ;
 
                  LDA #3                  ; Star trail delay := 3(+1) game loops
@@ -5031,9 +5031,9 @@
                  LDX TRAILIND            ; Next avail. space obj index for star of star trail
 
                  LDA #$12                ; Star z-coordinate := >= +$12** (+4608) <KM>
-                 STA L.RANGE+1           ;
+                 STA L_RANGE+1           ;
 
-                 LDA RANDOM              ; Calc random index to pick initial star coordinates
+                 LDA LRANDOM              ; Calc random index to pick initial star coordinates
                  AND #$03                ;
                  TAY                     ;
                  LDA WARPSTARXTAB,Y      ; Pick x-coordinate (high byte) of star from table
@@ -5045,16 +5045,16 @@
                  TXA                     ; Save space object index
                  TAY                     ;
                  LDA #5                  ; Loop over 5(+1) stars that form the star trail
-                 STA L.TRAILCNT          ; Store star counter of star trail
+                 STA L_TRAILCNT          ; Store star counter of star trail
 
  LOOP034         CLC                     ; Place stars in z-coordinate intervals of +80 <KM>
-                 LDA L.RANGE             ;
+                 LDA L_RANGE             ;
                  ADC #80                 ;
-                 STA L.RANGE             ;
+                 STA L_RANGE             ;
                  STA ZPOSLO,X            ;
-                 LDA L.RANGE+1           ;
+                 LDA L_RANGE+1           ;
                  ADC #0                  ;
-                 STA L.RANGE+1           ;
+                 STA L_RANGE+1           ;
                  STA ZPOSHI,X            ;
 
                  LDA #0                  ; Star's velocity vector components := 0 <KM/H>
@@ -5071,10 +5071,10 @@
                  JSR COPYPOSXY           ; Copy x and y coordinate from previous star in trail
 
                  DEX                     ; Decrement space object index to next star
-                 CPX #NUMSPCOBJ.NORM     ; If index reaches minimum value...
+                 CPX #NUMSPCOBJ_NORM     ; If index reaches minimum value...
                  BCS SKIP073             ;
-                 LDX #NUMSPCOBJ.ALL-1    ; ...wrap-around to maximum space object index
- SKIP073         DEC L.TRAILCNT          ;
+                 LDX #NUMSPCOBJ_ALL-1    ; ...wrap-around to maximum space object index
+ SKIP073         DEC L_TRAILCNT          ;
                  BPL LOOP034             ; Next star of star trail
 
                  STX TRAILIND            ; Save space object index of star trail's last star
@@ -5118,15 +5118,15 @@
  ;     0..80 -> Pixel number
  ;     255   -> Error value indicating "dividend overflow" or "division by zero"
 
- L.DIVISOR       = $68                   ; Divisor (16-bit value)
- L.QUOTIENT      = $6D                   ; Division result (unsigned 8-bit value)
- L.LOOPCNT       = $6E                   ; Division loop counter. Used values are: 7..0.
+ L_DIVISOR       = $68                   ; Divisor (16-bit value)
+ L_QUOTIENT      = $6D                   ; Division result (unsigned 8-bit value)
+ L_LOOPCNT       = $6E                   ; Division loop counter. Used values are: 7..0.
 
  PROJECTION      LDA #0                  ; Init quotient result
-                 STA L.QUOTIENT          ;
+                 STA L_QUOTIENT          ;
 
                  LDA #7                  ; Init division loop counter
-                 STA L.LOOPCNT           ;
+                 STA L_LOOPCNT           ;
 
                  LSR DIVIDEND+1          ; DIVIDEND := x-coordinate (or y-coordinate) / 2
                  ROR DIVIDEND            ; (division by 2 to make B15 = 0?) (?)
@@ -5136,34 +5136,34 @@
 
                  LDA ZPOSHI,X            ; If in Front view -> DIVISOR := z-coordinate / 2
                  LSR A                   ; (division by 2 to make B15 = 0?) (?)
-                 STA L.DIVISOR+1         ;
+                 STA L_DIVISOR+1         ;
                  LDA ZPOSLO,X            ;
                  ROR A                   ;
-                 STA L.DIVISOR           ;
+                 STA L_DIVISOR           ;
                  JMP LOOP035             ;
 
  SKIP075         SEC                     ; If in Aft view -> DIVISOR := - z-coordinate / 2
                  LDA #0                  ; (division by 2 to make B15 = 0?) (?)
                  SBC ZPOSLO,X            ;
-                 STA L.DIVISOR           ;
+                 STA L_DIVISOR           ;
                  LDA #0                  ;
                  SBC ZPOSHI,X            ;
                  LSR A                   ;
-                 STA L.DIVISOR+1         ;
-                 ROR L.DIVISOR           ;
+                 STA L_DIVISOR+1         ;
+                 ROR L_DIVISOR           ;
 
- LOOP035         ASL L.QUOTIENT          ; QUOTIENT := DIVIDEND / DIVISOR * 128
+ LOOP035         ASL L_QUOTIENT          ; QUOTIENT := DIVIDEND / DIVISOR * 128
                  SEC                     ;
                  LDA DIVIDEND            ;
-                 SBC L.DIVISOR           ;
+                 SBC L_DIVISOR           ;
                  TAY                     ;
                  LDA DIVIDEND+1          ;
-                 SBC L.DIVISOR+1         ;
+                 SBC L_DIVISOR+1         ;
                  BCC SKIP076             ;
 
                  STA DIVIDEND+1          ;
                  STY DIVIDEND            ;
-                 INC L.QUOTIENT          ;
+                 INC L_QUOTIENT          ;
 
  SKIP076         ASL DIVIDEND            ;
                  ROL DIVIDEND+1          ;
@@ -5172,10 +5172,10 @@
                  LDA #255                ; Return 255 if division by zero or dividend overflow
                  RTS                     ;
 
- SKIP077         DEC L.LOOPCNT           ;
+ SKIP077         DEC L_LOOPCNT           ;
                  BPL LOOP035             ; Next division loop iteration
 
-                 LDY L.QUOTIENT          ; Prep with quotient
+                 LDY L_QUOTIENT          ; Prep with quotient
                  LDA MAPTO80,Y           ; Pick and return pixel column (or row) number...
  SKIP078         RTS                     ; ...relative to PLAYFIELD center
 
@@ -5515,7 +5515,7 @@
  ;      ship in subroutine COPYPOSVEC ($ACAF). In addition, the Zylon ship is
  ;      earmarked for the tracking computer.
 
- L.CTRLDZYLON    = $6A                   ; Index of currently game-controlled Zylon ship.
+ L_CTRLDZYLON    = $6A                   ; Index of currently game-controlled Zylon ship.
                                          ; Used values are:
                                          ;   0 -> Control Zylon ship 0
                                          ;   1 -> Control Zylon ship 1
@@ -5617,18 +5617,18 @@
                  LDA PL2LIFE             ; Return if PLAYER2 alive
                  BNE SKIP091             ;
 
- SKIP090         LDA RANDOM              ; Return in 98% (252:256) (do not create meteor)
+ SKIP090         LDA LRANDOM              ; Return in 98% (252:256) (do not create meteor)
                  CMP #4                  ;
                  BCS SKIP091             ;
 
  ;*** Create new meteor! ********************************************************
-                 LDA #SHAP.METEOR        ; PLAYER2 is METEOR (shape type 6)
+                 LDA #SHAP_METEOR        ; PLAYER2 is METEOR (shape type 6)
                  STA PL2SHAPTYPE         ;
                  LDX #2                  ; Randomize position vector of meteor
                  JSR INITPOSVEC          ;
                  LDA #60                 ; Meteor lifetime := 60 game loops
                  STA PL2LIFE             ;
-                 LDA #NEG!8              ; SUMMARY:
+                 LDA #NEG|8              ; SUMMARY:
                  STA PL2ZVEL             ; x-velocity :=  0 <KM/H>
                  LDA #0                  ; y-velocity :=  0 <KM/H>
                  STA PL2COLUMN           ; z-velocity := -8 <KM/H>
@@ -5657,7 +5657,7 @@
                  LDA #255                ; Zylon ship lifetime := 255 game loops (infinite)
                  STA PL0LIFE,X           ;
 
-                 LDA RANDOM              ; Pick a Zylon ship shape type (1 out of 8)
+                 LDA LRANDOM              ; Pick a Zylon ship shape type (1 out of 8)
                  AND #$07                ;
                  TAY                     ;
                  LDA ZYLONSHAPTAB,Y      ;
@@ -5672,7 +5672,7 @@
                  STA MILESTTIM0,X        ;
 
                  STA ZPOSSIGN,X          ; Put Zylon ship in front of our starship
-                 LDA RANDOM              ;
+                 LDA LRANDOM              ;
                  AND VICINITYMASK        ; y-coordinate (high byte) := RND(0..VICINITYMASK)
                  STA YPOSHI,X            ;
                  ADC #19                 ; x-coordinate (high byte) := y (high byte) + 19
@@ -5706,7 +5706,7 @@
                  STA MILESTTIM0,X        ;
 
                  LDA MISSIONLEVEL        ; Back-attack flag := 1 in 19% (48:256) of...
-                 LDY RANDOM              ; ...WARRIOR or COMMANDER missions
+                 LDY LRANDOM              ; ...WARRIOR or COMMANDER missions
                  CPY #48                 ; ...              := 0 otherwise
                  BCC SKIP097             ;
                  LSR A                   ;
@@ -5715,7 +5715,7 @@
 
                                          ; Loop over all 3 milestone velocity indices
                  LDA ZYLONFLPAT0,X       ; Set new milestone velocity index:
- LOOP037         BIT RANDOM              ; If Zylon flight pattern is...
+ LOOP037         BIT LRANDOM              ; If Zylon flight pattern is...
                  BPL SKIP098             ; ...0 -> milestone velocity index := either 0 or 15
                  EOR #$0F                ; ...1 -> milestone velocity index := either 1 or 14
  SKIP098         STA MILESTVELINDZ0,X    ; ...4 -> milestone velocity index := either 4 or 11
@@ -5755,7 +5755,7 @@
 
                  CLC                     ; Adjust position vector component index
                  TYA                     ;
-                 ADC #NUMSPCOBJ.ALL      ;
+                 ADC #NUMSPCOBJ_ALL      ;
                  TAY                     ;
 
                  INX                     ;
@@ -5776,15 +5776,15 @@
                  BCC SKIP107             ;
  SKIP106         DEC ZYLONVELINDZ0,X     ; Decrem. Zylon velocity index if >= milestone index
 
- SKIP107         STX L.CTRLDZYLON        ; Save index of controlled Zylon ship
+ SKIP107         STX L_CTRLDZYLON        ; Save index of controlled Zylon ship
                  TAX                     ;
                  LDA ZYLONVELTAB,X       ; Pick new velocity value by Zylon velocity index
-                 LDX L.CTRLDZYLON        ; Reload index of controlled Zylon ship
+                 LDX L_CTRLDZYLON        ; Reload index of controlled Zylon ship
                  STA ZVEL,Y              ; Store new velocity vector component of Zylon ship
 
                  TYA                     ; Next velocity vector component
                  CLC                     ;
-                 ADC #NUMSPCOBJ.ALL      ;
+                 ADC #NUMSPCOBJ_ALL      ;
                  TAY                     ;
 
                  INX                     ;
@@ -5816,7 +5816,7 @@
                  BCS SKIP108             ;
 
  ;*** Set Zylon photon torpedo's z-velocity *************************************
-                 LDY #NEG!80             ; Prep Zylon torpedo's z-velocity := -80 <KM/H>
+                 LDY #NEG|80             ; Prep Zylon torpedo's z-velocity := -80 <KM/H>
 
                  LDA ZPOSSIGN,X          ; Prep Zylon ship's sign of z-coordinate
                  LSR A                   ;
@@ -5909,18 +5909,18 @@
  INITEXPL        LDA #128                ; Explosion lifetime := 128 game loops
                  STA EXPLLIFE            ;
 
-                 LDX #NUMSPCOBJ.ALL-1    ; Max index of space objects (for explosion frags)
+                 LDX #NUMSPCOBJ_ALL-1    ; Max index of space objects (for explosion frags)
                  STX MAXSPCOBJIND        ;
 
                                          ; Loop over all explosion fragment position vectors
                                          ; (index 48..17)
- LOOP040         LDA RANDOM              ; PIXEL COLUMN NUM := PLAYER column - 48 + RND(0..15)
+ LOOP040         LDA LRANDOM              ; PIXEL COLUMN NUM := PLAYER column - 48 + RND(0..15)
                  AND #$0F                ; (!)
                  ADC PL0COLUMN,Y         ;
                  SBC #48                 ;
                  STA PIXELCOLUMN,X       ;
 
-                 LDA RANDOM              ; PIXEL ROW NUM := (PLAYER row + RND(0..15)) / 2 - 16
+                 LDA LRANDOM              ; PIXEL ROW NUM := (PLAYER row + RND(0..15)) / 2 - 16
                  AND #$0F                ;
                  ADC PL0ROWNEW,Y         ;
                  LSR A                   ; (!)
@@ -5929,14 +5929,14 @@
 
                  JSR COPYPOSVEC          ; Copy position vector of PLAYER to explosion frag
 
-                 LDA RANDOM              ; z-velocity := RND(-7..+7) <KM/H>
-                 AND #NEG!7              ;
+                 LDA LRANDOM              ; z-velocity := RND(-7..+7) <KM/H>
+                 AND #NEG|7              ;
                  STA ZVEL,X              ;
-                 LDA RANDOM              ; x-velocity := RND(-7..+7) <KM/H>
-                 AND #NEG!7              ;
+                 LDA LRANDOM              ; x-velocity := RND(-7..+7) <KM/H>
+                 AND #NEG|7              ;
                  STA XVEL,X              ;
-                 LDA RANDOM              ; y-velocity := RND(-7..+7) <KM/H>
-                 AND #NEG!7              ;
+                 LDA LRANDOM              ; y-velocity := RND(-7..+7) <KM/H>
+                 AND #NEG|7              ;
                  STA YVEL,X              ;
 
                  DEX                     ; Next explosion fragment position vector
@@ -6169,11 +6169,11 @@
                  STA TRACKDIGIT          ;
 
  ;** Initialize starbase shape **************************************************
-                 LDA #SHAP.STARBASEC     ; PLAYER2 is STARBASE CENTER (shape type 3)
+                 LDA #SHAP_STARBASEC     ; PLAYER2 is STARBASE CENTER (shape type 3)
                  STA PL2SHAPTYPE         ;
-                 LDA #SHAP.STARBASEL     ; PLAYER1 is STARBASE LEFT (shape type 2)
+                 LDA #SHAP_STARBASEL     ; PLAYER1 is STARBASE LEFT (shape type 2)
                  STA PL1SHAPTYPE         ;
-                 LDA #SHAP.STARBASER     ; PLAYER0 is STARBASE RIGHT (shape type 4)
+                 LDA #SHAP_STARBASER     ; PLAYER0 is STARBASE RIGHT (shape type 4)
                  STA PL0SHAPTYPE         ;
 
                  LDA #255                ; Prep starbase lifetime := 255 game loops (infinite)
@@ -6261,7 +6261,7 @@
                  BNE SKIP118             ;
 
  ;*** Launch transfer vessel ****************************************************
-                 LDA #SHAP.TRANSVSSL     ; PLAYER4 is TRANSFER VESSEL (shape 5)
+                 LDA #SHAP_TRANSVSSL     ; PLAYER4 is TRANSFER VESSEL (shape 5)
                  STA PL4SHAPTYPE         ;
 
                  LDA #1                  ; Place transfer vessel behind starbase:
@@ -6274,9 +6274,9 @@
                  STA PL4ZPOSHI           ; y-velocity := -1 <KM/H>
                  LDA #$00                ; z-velocity := -7 <KM/H>
                  STA PL4XPOSHI           ;
-                 LDA #NEG!7              ;
+                 LDA #NEG|7              ;
                  STA PL4ZVEL             ;
-                 LDA #NEG!1              ; DOCKSTATE := RETURN TRANSFER VESSEL
+                 LDA #NEG|1              ; DOCKSTATE := RETURN TRANSFER VESSEL
                  STA DOCKSTATE           ;
                  STA PL4YVEL             ;
                  STA PL4LIFE             ; Transfer vessel lifetime := 129 game loops
@@ -6298,7 +6298,7 @@
                  DEX                     ;
                  BPL LOOP041             ;
 
-                 LDA #CCS.COL2!CCS.9     ; Set starship's ENERGY readout to "9999" in COLOR2
+                 LDA #CCS_COL2|CCS_9     ; Set starship's ENERGY readout to "9999" in COLOR2
                  LDX #3                  ;
  LOOP042         STA ENERGYD1,X          ;
                  DEX                     ;
@@ -6306,7 +6306,7 @@
 
                  LDA #7                  ; Move transfer vessel back toward starbase:
                  STA PL4ZVEL             ; x-velocity := -1 <KM/H>
-                 LDA #NEG!1              ; y-velocity := +1 <KM/H>
+                 LDA #NEG|1              ; y-velocity := +1 <KM/H>
                  STA PL4XVEL             ; z-velocity := +7 <KM/H>
                  LDA #1                  ;
                  STA PL4YVEL             ;
@@ -6348,10 +6348,10 @@
  ;   $08  $02  $0B -> Show Display List header line of Long-Range Scan view
  ;   $08  $02  $08 -> Show Display List header line of Galactic Chart view
 
- L.NUMBYTES      = $6A                   ; Number of bytes to copy
+ L_NUMBYTES      = $6A                   ; Number of bytes to copy
 
  MODDLST         SEI                     ; Disable IRQ
-                 STA L.NUMBYTES          ; Save number of bytes to copy
+                 STA L_NUMBYTES          ; Save number of bytes to copy
 
  LOOP043         LDA VCOUNT              ; Wait for ANTIC line counter >= 124 (PLAYFIELD...
                  CMP #124                ; ...bottom) before changing the Display List
@@ -6363,7 +6363,7 @@
                  LDA #$0D                ; Prep Display List instruction $0D (GRAPHICS7)
  SKIP123         STA DSPLST,X            ; Store byte in Display List
                  INX                     ;
-                 DEC L.NUMBYTES          ;
+                 DEC L_NUMBYTES          ;
                  BNE LOOP044             ; Copy next byte
 
                  CLI                     ; Enable IRQ
@@ -6679,7 +6679,7 @@
  ;
  ;   A = New velocity vector component of our starship's photon torpedo in <KM/H>
 
- L.VELSIGN       = $6A                   ; Saves velocity sign
+ L_VELSIGN       = $6A                   ; Saves velocity sign
 
  HOMINGVEL       LDY #NEG                ; Preload negative velocity sign
                  BCS SKIP131             ; Skip if difference is positive
@@ -6687,12 +6687,12 @@
                  EOR #$FF                ; Invert to get absolute value of difference
                  LDY #0                  ; Preload positive velocity sign
 
- SKIP131         STY L.VELSIGN           ; Save velocity sign
+ SKIP131         STY L_VELSIGN           ; Save velocity sign
                  CMP #8                  ;
                  BCC SKIP132             ;
                  LDA #7                  ; Limit difference to 0..7
  SKIP132         TAY                     ;
-                 LDA L.VELSIGN           ; Reload velocity sign
+                 LDA L_VELSIGN           ; Reload velocity sign
                  ORA HOMVELTAB,Y         ; Combine with homing velocity from table
                  RTS                     ; Return
 
@@ -6777,7 +6777,7 @@
 
  ;*** Damage some subsystem *****************************************************
                  LDX MISSIONLEVEL        ; Prep mission level
- LOOP047         LDA RANDOM              ; Return if random number >= damage probability
+ LOOP047         LDA LRANDOM              ; Return if random number >= damage probability
                  CMP DAMAGEPROBTAB,X     ; ...(the latter depends on mission level)
                  BCS SKIP137             ;
 
@@ -6793,7 +6793,7 @@
                  LDA PL2LIFE             ; Load Zylon photon torpedo lifetime...
                  CMP #30                 ; ...and compare it to 30 game loops
 
-                 LDA #CCS.COL2           ; Preload COLOR2 text color bits (= damaged status)
+                 LDA #CCS_COL2           ; Preload COLOR2 text color bits (= damaged status)
                  LDY DAMAGEPHRTAB,X      ; Preload title phrase offset of damaged subsystem
 
                  BCC SKIP135             ; Skip if Zylon torpedo lifetime < 30 game loops
@@ -6807,7 +6807,7 @@
                  BIT GCSTATCOM           ; Skip if Attack Computer already destroyed
                  BVS SKIP135             ;
 
- SKIP134         LDA #CCS.COL3           ; Preload COLOR3 text color bits (= destroyed status)
+ SKIP134         LDA #CCS_COL3           ; Preload COLOR3 text color bits (= destroyed status)
                  LDY DESTROYPHRTAB,X     ; Preload title phrase offset of destroyed subsystem
 
  SKIP135         ORA GCSTATPHO,X         ; Combine status letter with new color
@@ -6946,8 +6946,8 @@
  ; none is found then the mission is complete and code execution continues into
  ; subroutine GAMEOVER2 ($B121), ending the game. 
 
- L.PLHIT         = $6B                   ; Saves PLAYER (and space object) index of hit PLAYER
- L.VIEWDIR       = $6C                   ; Saves view direction. Used values are:
+ L_PLHIT         = $6B                   ; Saves PLAYER (and space object) index of hit PLAYER
+ L_VIEWDIR       = $6C                   ; Saves view direction. Used values are:
                                          ;   $00 -> Front view
                                          ;   $FF -> Aft view
 
@@ -6981,16 +6981,16 @@
                  LDA SHIPVIEW            ; Skip if in Front view
                  BEQ SKIP140             ;
                  LDA #$FF                ; Calculate range index...
- SKIP140         STA L.VIEWDIR           ; Saves view direction
+ SKIP140         STA L_VIEWDIR           ; Saves view direction
                  EOR ZPOSHI,Y            ; Calc ABS(z-coordinate (high byte)) of hit object
                  CMP #16                 ; Limit range index to 0..7
                  BCC SKIP141             ;
                  LDA #15                 ;
  SKIP141         LSR A                   ;
-                 STY L.PLHIT             ; Save index of hit PLAYER
+                 STY L_PLHIT             ; Save index of hit PLAYER
 
                  TAY                     ;
-                 LDA L.VIEWDIR           ; Reload view direction
+                 LDA L_VIEWDIR           ; Reload view direction
                  EOR PL3ZPOSHI,X         ; Calc ABS(z-coordinate (high byte)) of torpedo
 
                  CMP HITMAXZTAB,Y        ; Next torpedo if torpedo >= max hit z-coordinate
@@ -7000,7 +7000,7 @@
                  BCC LOOP048             ;
 
  ;*** Our starship's photon torpedo has hit within valid z-coordinate interval! *
-                 LDY L.PLHIT             ; Reload index of hit PLAYER
+                 LDY L_PLHIT             ; Reload index of hit PLAYER
                  SEC                     ; Calc "age" of photon torpedo in game loops to...
                  LDA #255                ; delay playing ZYLON EXPLOSION noise sound pattern
                  SBC PL3LIFE,X           ;
@@ -7009,7 +7009,7 @@
                  CMP #15                 ; Skip if photon torpedo "age" < 15
                  BCC SKIP142             ;
                  LDA PL0SHAPTYPE,Y       ; CARRY := PLAYER is ZYLON BASESTAR (shape type 8)
-                 CMP #SHAP.ZBASESTAR     ; (and torpedo "age" good to destroy ZYLON BASESTAR)
+                 CMP #SHAP_ZBASESTAR     ; (and torpedo "age" good to destroy ZYLON BASESTAR)
 
  ;*** Clean up our starship's photon torpedo and hit PLAYER *********************
  SKIP142         LDA #0                  ; Lock-on lifetime := 0 game loops
@@ -7021,7 +7021,7 @@
 
                  LDA PL0SHAPTYPE,Y       ; If hit PLAYER is...
                  BEQ SKIP144             ; ...a PHOTON TORPEDO (shape type 0)...
-                 CMP #SHAP.METEOR        ; ...or a METEOR (shape type 6)...
+                 CMP #SHAP_METEOR        ; ...or a METEOR (shape type 6)...
                  BEQ SKIP144             ; ...do not score, just do explosion
 
                  LDA #0                  ; Clear photon torpedo tracking flag
@@ -7056,9 +7056,9 @@
                  LDX #1                  ; Increment Zylon KILL COUNTER readout...
  LOOP049         INC KILLCNTD1,X         ; ...of Control Panel Display
                  LDA KILLCNTD1,X         ;
-                 CMP #[CCS.COL1!CCS.9]+1 ;
+                 CMP #(CCS_COL1|CCS_9)+1 ;
                  BCC SKIP144             ;
-                 LDA #[CCS.COL1!CCS.0]   ;
+                 LDA #(CCS_COL1|CCS_0)   ;
                  STA KILLCNTD1,X         ;
                  DEX                     ;
                  BPL LOOP049             ;
@@ -7165,13 +7165,13 @@
  ;      Display, and then sets the tracking letter of the Control Panel Display.
  ;      It is entered from subroutine DOCKING ($ACE6).
 
- L.KEYCODE       = $6A                   ; Saves pressed keyboard code
+ L_KEYCODE       = $6A                   ; Saves pressed keyboard code
 
  KEYBOARD        LDA KEYCODE             ; Return if no keyboard code collected
                  BEQ SKIP150             ;
 
                  LDX #20                 ; Prep keyboard code table loop index
-                 STA L.KEYCODE           ; Save keyboard code
+                 STA L_KEYCODE           ; Save keyboard code
 
                  LDA #0                  ; Reset idle counter
                  STA IDLECNTHI           ;
@@ -7183,7 +7183,7 @@
  ;*** Search keyboard code in lookup table **************************************
 
  LOOP051         LDA KEYTAB,X            ; Loop over all valid keyboard codes
-                 CMP L.KEYCODE           ;
+                 CMP L_KEYCODE           ;
                  BEQ SKIP147             ; Branch if matching entry found
                  DEX                     ;
                  BPL LOOP051             ; Next keyboard code
@@ -7224,10 +7224,10 @@
                  LDA #$08                ;
                  JSR MODDLST             ;
 
-                 LDX #NUMSPCOBJ.NORM-1   ; Create new star field of 12 stars
+                 LDX #NUMSPCOBJ_NORM-1   ; Create new star field of 12 stars
  LOOP052         JSR INITPOSVEC          ;
                  DEX                     ;
-                 CPX #NUMSPCOBJ.PL       ;
+                 CPX #NUMSPCOBJ_PL       ;
                  BCS LOOP052             ;
 
                  BCC UPDSCREEN           ; Return via updating screen (below)
@@ -7248,7 +7248,7 @@
                  JSR BEEP                ;
 
  ;*** Update PLAYFIELD (Cross hairs, Attack Computer, set tracking letter) ******
- UPDSCREEN       LDX #CCS.T              ; Get custom char 'T' (entry point TRANSFER COMPLETE)
+ UPDSCREEN       LDX #CCS_T              ; Get custom char 'T' (entry point TRANSFER COMPLETE)
                  LDY ISTRACKCOMPON       ;
                  BEQ SKIP154             ; Skip if Tracking Computer is on
 
@@ -7281,7 +7281,7 @@
                  LDA #30                 ; Set Engines energy drain rate (= speed key '7')
                  STA DRAINENGINES        ;
 
-                 LDA #NUMSPCOBJ.ALL-1    ; Set space obj index of first star of star trail
+                 LDA #NUMSPCOBJ_ALL-1    ; Set space obj index of first star of star trail
                  STA TRAILIND            ;
                  LDA #0                  ; Clear star trail delay
                  STA TRAILDELAY          ;
@@ -7619,18 +7619,18 @@
  ;
  ; (5)  Update the HYPERWARP ENERGY readout of the Galactic Chart Panel Display.
 
- L.WARPARRVCOL   = $6A                   ; Saves arrival sector column number
- L.DELTAC        = $6A                   ; Saves diff column value
+ L_WARPARRVCOL   = $6A                   ; Saves arrival sector column number
+ L_DELTAC        = $6A                   ; Saves diff column value
 
  ;*** Calculate arrival sector **************************************************
  CALCWARP        LDA WARPARRVCOLUMN      ;
                  LSR A                   ;
                  LSR A                   ;
                  LSR A                   ;
-                 STA L.WARPARRVCOL       ; A := arrival sector column 0..15
+                 STA L_WARPARRVCOL       ; A := arrival sector column 0..15
                  LDA WARPARRVROW         ;
                  AND #$70                ; A := arrival sector row (0..7) * 16
-                 ORA L.WARPARRVCOL       ;
+                 ORA L_WARPARRVCOL       ;
                  STA ARRVSECTOR          ; Save arrival sector (format %0rrrcccc)
 
  ;*** Update target number digit of Galactic Chart Panel Display ****************
@@ -7638,7 +7638,7 @@
                  LDA GCMEMMAP,X          ; Get number of Zylon ships in arrival sector
                  BPL SKIP169             ; Skip if no starbase in arrival sector
                  LDA #0                  ; Clear number of Zylon ships
- SKIP169         ORA #CCS.COL2!ROM.0     ; Merge COLOR2 bits with number of Zylon ships
+ SKIP169         ORA #CCS_COL2|ROM_0     ; Merge COLOR2 bits with number of Zylon ships
                  BIT GCSTATRAD           ; Skip if Subspace Radio destroyed
                  BVS SKIP170             ;
 
@@ -7651,7 +7651,7 @@
                  BCS SKIP171             ;
                  EOR #$FF                ;
                  ADC #1                  ;
- SKIP171         STA L.DELTAC            ;
+ SKIP171         STA L_DELTAC            ;
 
                  SEC                     ; A := DELTAR := ABS(WARPARRVROW - WARPDEPRROW)
                  LDA WARPARRVROW         ; (Row value difference)
@@ -7662,7 +7662,7 @@
 
  SKIP172         LSR A                   ; A := DISTANCE := DELTAR / 2 + DELTAC
                  CLC                     ;
-                 ADC L.DELTAC            ;
+                 ADC L_DELTAC            ;
 
                  TAY                     ; Save DISTANCE
                  LSR A                   ; Calc index into hyperwarp energy table
@@ -7679,7 +7679,7 @@
  ;*** Update HYPERWARP ENERGY readout of Galactic Chart Panel Display ***********
                  TAY                     ; Prep with hyperwarp energy value
 
-                 LDA #ROM.0              ; Set HYPERWARP ENERGY readout digit1..3 to '0'
+                 LDA #ROM_0              ; Set HYPERWARP ENERGY readout digit1..3 to '0'
                  STA GCWARPD1            ;
                  STA GCWARPD1+1          ;
                  STA GCWARPD1+2          ;
@@ -7687,10 +7687,10 @@
  LOOP053         LDX #2                  ; Loop over HYPERWARP ENERGY readout digit3..1
  LOOP054         INC GCWARPD1,X          ; Increment digit value
                  LDA GCWARPD1,X          ;
-                 CMP #ROM.9+1            ;
+                 CMP #ROM_9+1            ;
                  BCC SKIP173             ; Skip if energy digit <= '9'
 
-                 LDA #ROM.0              ; Replace energy digit with '0'
+                 LDA #ROM_0              ; Replace energy digit with '0'
                  STA GCWARPD1,X          ;
                  DEX                     ;
                  BPL LOOP054             ; Next energy digit
@@ -7789,11 +7789,11 @@
  ;     $52 -> "DAMAGE CONTROL..."
  ;     $75 -> "RED ALERT"
 
- L.WORD          = $6A                   ; Saves word number of WORDTAB ($BC2A). Used values
+ L_WORD          = $6A                   ; Saves word number of WORDTAB ($BC2A). Used values
                                          ; are $00..$3F.
- L.COLUMNPOS     = $6B                   ; Saves cursor column position during copying text
+ L_COLUMNPOS     = $6B                   ; Saves cursor column position during copying text
                                          ; into title line
- L.TOKEN         = $6C                   ; Saves title phrase token from PHRASETAB ($BBAA),
+ L_TOKEN         = $6C                   ; Saves title phrase token from PHRASETAB ($BBAA),
                                          ; contains bit-encoded information about one word in
                                          ; the title phrase:
                                          ; B7..6 = %00 -> Copy next word to title line
@@ -7822,7 +7822,7 @@
  ;*** Init cursor column position and clear title line **************************
  SKIP176         LDX #19                 ; There are 19(+1) characters to clear
                  LDA #0                  ;
-                 STA L.COLUMNPOS         ; Init cursor column position
+                 STA L_COLUMNPOS         ; Init cursor column position
 
  LOOP055         STA TITLETXT,X          ; Clear character in title line
                  DEX                     ;
@@ -7846,7 +7846,7 @@
 
                  LDY SCOREDCLASSIND      ; Get scored class index, is in 0..15
                  LDA CLASSTAB,Y          ; Load scored class number digit
-                 LDX L.COLUMNPOS         ; Load cursor position
+                 LDX L_COLUMNPOS         ; Load cursor position
                  STA TITLETXT,X          ; Store class in title line
                  LDA #60                 ; Title segment lifetime := 60 game loops
                  STA TITLELIFE           ;
@@ -7860,13 +7860,13 @@
                  LDA RANKTAB,Y           ; Load rank word number
 
  ;*** Search word of token in word table ****************************************
- SKIP180         STA L.TOKEN             ; Save phrase token
+ SKIP180         STA L_TOKEN             ; Save phrase token
                  AND #$3F                ; Strip bits B6..7 from phrase token
-                 STA L.WORD              ; Store word number (bits B5..0)
+                 STA L_WORD              ; Store word number (bits B5..0)
 
-                 LDA #<[WORDTAB-1]       ; Point MEMPTR to WORDTAB-1
+                 LDA #<(WORDTAB-1)       ; Point MEMPTR to WORDTAB-1
                  STA MEMPTR              ;
-                 LDA #>[WORDTAB-1]       ;
+                 LDA #>(WORDTAB-1)       ;
                  STA MEMPTR+1            ;
 
  LOOP056         INC MEMPTR              ; Increment MEMPTR
@@ -7876,23 +7876,23 @@
  SKIP181         LDY #0                  ;
                  LDA (MEMPTR),Y          ; Load character of word
                  BPL LOOP056             ; Loop until end-of-word marker (bit B7) found
-                 DEC L.WORD              ;
+                 DEC L_WORD              ;
                  BNE LOOP056             ; Loop until word found
 
  ;*** Copy word to title line, add space ****************************************
  LOOP057         AND #$3F                ; Strip color bits B6..7 from character
-                 EOR #CCS.COL2!$20       ; Merge COLOR2 bits and convert to ATASCII
-                 LDX L.COLUMNPOS         ; Copy character to title line
-                 INC L.COLUMNPOS         ; Increment cursor column position
+                 EOR #CCS_COL2|$20       ; Merge COLOR2 bits and convert to ATASCII
+                 LDX L_COLUMNPOS         ; Copy character to title line
+                 INC L_COLUMNPOS         ; Increment cursor column position
                  STA TITLETXT,X          ;
                  INY                     ;
                  LDA (MEMPTR),Y          ; Load next character of word
                  BPL LOOP057             ; Next character of word if no end-of-word marker
-                 INC L.COLUMNPOS         ; Word was copied. Add space after word.
+                 INC L_COLUMNPOS         ; Word was copied. Add space after word.
 
  ;*** Decide to copy another word, etc. *****************************************
                  LDA #60                 ; SUMMARY:
-                 BIT L.TOKEN             ; If bits B7..6 of phrase token...
+                 BIT L_TOKEN             ; If bits B7..6 of phrase token...
                  BPL SKIP182             ; %00 -> Copy next word to title line
                  BVC SKIP183             ; %01 -> End-of-phrase, short delay, hide title line
                  LDA #254                ;        Title segment lifetime := 60 game loops
@@ -8235,7 +8235,7 @@
                  BEQ SKIP191             ;
 
                  DEC NOISEHITLIFE        ; Decrement STARSHIP EXPLOSION noise lifetime
-                 LDA RANDOM              ; Set random frequency to AUDF3
+                 LDA LRANDOM              ; Set random frequency to AUDF3
                  STA AUDF3               ;
                  AND #$20                ; Toggle noise/tone dist. of AUDC3's shadow register
                  EOR NOISEAUDC3          ; ...randomly
@@ -8417,21 +8417,21 @@
  ; (6)  Apply a final tweak
  ;
  ;      The last entry of lookup table MAPTOBCD99 ($0EE9) is tweaked to a value
- ;      of CCS.INF * 16 + CCS.SPC. It is used to display an infinity symbol by
+ ;      of CCS_INF * 16 + CCS_SPC. It is used to display an infinity symbol by
  ;      the RANGE readout of the Control Panel Display in subroutine SHOWCOORD
  ;      ($B8A7).
  ;
  ; Code execution continues into subroutine DRAWGC ($B4B9), which draws the
  ; content of the Galactic Chart with characters from the custom character set.
 
- L.MEMPTR1       = $68                   ; 16-bit memory pointer
- L.MEMPTR2       = $6A                   ; 16-bit memory pointer
- L.SECTORTYPE    = $6A                   ; Saves sector type. Used values are:
+ L_MEMPTR1       = $68                   ; 16-bit memory pointer
+ L_MEMPTR2       = $6A                   ; 16-bit memory pointer
+ L_SECTORTYPE    = $6A                   ; Saves sector type. Used values are:
                                          ;   $CF -> Sector contains starbase
                                          ;   $04 -> Sector contains 4 Zylon ships
                                          ;   $03 -> Sector contains 3 Zylon ships
                                          ;   $02 -> Sector contains 2 or 1 Zylon ships
- L.SECTORCNT     = $6B                   ; Saves number of sectors of the current sector type
+ L_SECTORCNT     = $6B                   ; Saves number of sectors of the current sector type
 
  ;*** Initialize Display List and copy color table ******************************
  INITIALIZE      LDX #89                 ; Set 89(+1) GRAPHICS7 rows from DSPLST+5 on
@@ -8456,50 +8456,50 @@
 
  ;*** Calculate lookup tables ***************************************************
                  LDX #0                  ; Clear both 16-bit memory pointers
-                 STX L.MEMPTR1           ;
-                 STX L.MEMPTR1+1         ;
-                 STX L.MEMPTR2           ;
-                 STX L.MEMPTR2+1         ;
+                 STX L_MEMPTR1           ;
+                 STX L_MEMPTR1+1         ;
+                 STX L_MEMPTR2           ;
+                 STX L_MEMPTR2+1         ;
 
  ;*** Calc MAPTO80 map (converts value of $00..$FF to value in 0..80) ***********
  LOOP061         CLC                     ;
-                 LDA L.MEMPTR1           ;
+                 LDA L_MEMPTR1           ;
                  ADC #81                 ;
-                 STA L.MEMPTR1           ;
-                 LDA L.MEMPTR1+1         ;
+                 STA L_MEMPTR1           ;
+                 LDA L_MEMPTR1+1         ;
                  STA MAPTO80,X           ;
                  ADC #0                  ;
-                 STA L.MEMPTR1+1         ;
+                 STA L_MEMPTR1+1         ;
 
  ;*** Calc MAPTOBCD99 map (converts value of $00..$FF to BCD-value in 00..99) ***
                  CLC                     ;
-                 LDA L.MEMPTR2           ;
+                 LDA L_MEMPTR2           ;
                  ADC #100                ;
-                 STA L.MEMPTR2           ;
-                 LDA L.MEMPTR2+1         ;
+                 STA L_MEMPTR2           ;
+                 LDA L_MEMPTR2+1         ;
                  STA MAPTOBCD99,X        ;
                  SED                     ;
                  ADC #0                  ;
                  CLD                     ;
-                 STA L.MEMPTR2+1         ;
+                 STA L_MEMPTR2+1         ;
                  INX                     ;
                  BNE LOOP061             ;
 
  ;*** Calculate PLAYFIELD memory row addresses, copy Panel Display texts ********
-                 LDX #<PFMEM             ; Point L.MEMPTR1 to start of PLAYFIELD memory
-                 STX L.MEMPTR1           ; (X = 0, because PFMEM is at $1000)
+                 LDX #<PFMEM             ; Point L_MEMPTR1 to start of PLAYFIELD memory
+                 STX L_MEMPTR1           ; (X = 0, because PFMEM is at $1000)
                  LDA #>PFMEM             ;
-                 STA L.MEMPTR1+1         ;
+                 STA L_MEMPTR1+1         ;
 
  LOOP062         CLC                     ;
-                 LDA L.MEMPTR1           ;
-                 STA PFMEMROWLO,X        ; Store 16-bit value of L.MEMPTR1 in PFMEMROWHI/LO
-                 ADC #40                 ; Add 40 to L.MEMPTR
-                 STA L.MEMPTR1           ; (40 bytes = 160 pixels = 1 PLAYFIELD row)
-                 LDA L.MEMPTR1+1         ;
+                 LDA L_MEMPTR1           ;
+                 STA PFMEMROWLO,X        ; Store 16-bit value of L_MEMPTR1 in PFMEMROWHI/LO
+                 ADC #40                 ; Add 40 to L_MEMPTR
+                 STA L_MEMPTR1           ; (40 bytes = 160 pixels = 1 PLAYFIELD row)
+                 LDA L_MEMPTR1+1         ;
                  STA PFMEMROWHI,X        ;
                  ADC #0                  ;
-                 STA L.MEMPTR1+1         ;
+                 STA L_MEMPTR1+1         ;
 
                  LDA PANELTXTTAB,X       ; Copy Control and Galactic Chart Panel Display texts
                  STA PANELTXT,X          ; (loop jamming)
@@ -8518,20 +8518,20 @@
                                          ; ...Galactic Chart (sector row 4, sector column 8)
 
  LOOP063         LDA SECTORTYPETAB,X     ; Prep sector type
-                 STA L.SECTORTYPE        ;
+                 STA L_SECTORTYPE        ;
 
                  LDY MISSIONLEVEL        ; Number sectors of current type := mission level + 2
                  INY                     ;
                  INY                     ;
-                 STY L.SECTORCNT         ;
+                 STY L_SECTORCNT         ;
 
- LOOP064         LDA RANDOM              ; Load random sector 0..127 from GC memory map
+ LOOP064         LDA LRANDOM              ; Load random sector 0..127 from GC memory map
                  AND #$7F                ;
                  TAY                     ;
                  LDA GCMEMMAP,Y          ;
                  BNE LOOP064             ; If sector already occupied, pick another
 
-                 LDA L.SECTORTYPE        ; Reload sector type
+                 LDA L_SECTORTYPE        ; Reload sector type
                  BPL SKIP196             ; Skip if sector not to be occupied by starbase
 
                  CPY #$10                ; Place starbase...
@@ -8549,28 +8549,28 @@
                  ORA GCMEMMAP-16,Y       ; ...not north of an occupied sector
                  BNE LOOP064             ;
 
-                 LDA L.SECTORTYPE        ; Reload sector type
+                 LDA L_SECTORTYPE        ; Reload sector type
 
  SKIP196         STA GCMEMMAP,Y          ; Store sector type in Galactic Chart memory map
-                 DEC L.SECTORCNT         ;
+                 DEC L_SECTORCNT         ;
                  BPL LOOP064             ; Next sector
                  DEX                     ;
                  BPL LOOP063             ; Next sector type
 
  ;*** Clear Galactic Chart and draw top border **********************************
                  LDX #180                ; Clear Galactic Chart PLAYFIELD
- LOOP065         LDA #CCS.SPC            ;
+ LOOP065         LDA #CCS_SPC            ;
                  STA GCPFMEM-1,X         ;
                  DEX                     ;
                  BNE LOOP065             ;
 
                  LDX #15                 ; Draw top border (15(+1) characters)
- LOOP066         LDA #CCS.BORDERS        ;
+ LOOP066         LDA #CCS_BORDERS        ;
                  STA GCPFMEM+2,X         ;
                  DEX                     ;
                  BPL LOOP066             ;
 
-                 LDA #CCS.CORNERSW       ; Draw NORTHEAST corner (1 character)
+                 LDA #CCS_CORNERSW       ; Draw NORTHEAST corner (1 character)
                  STA GCPFMEM+18          ;
 
                  LDA #0                  ; Release starship's position at center of Galactic
@@ -8587,7 +8587,7 @@
                  STA WARPDEPRROW         ;
 
  ;*** Tweak last entry of MAPTOBCD99 ********************************************
-                 LDA #CCS.INF*16+CCS.SPC ; Last entry of MAPTOBCD99: 'INFINITY'+'SPACE' char
+                 LDA #CCS_INF*16+CCS_SPC ; Last entry of MAPTOBCD99: 'INFINITY'+'SPACE' char
                  STA MAPTOBCD99+255      ;
 
  ;*******************************************************************************
@@ -8610,12 +8610,12 @@
  ; NOTE: Sectors with 1 or 2 Zylon ships display the same symbol in the Galactic
  ; Chart.
 
- L.GCMEMMAPIND   = $6A                   ; Saves Galactic Chart memory map index
+ L_GCMEMMAPIND   = $6A                   ; Saves Galactic Chart memory map index
 
  DRAWGC          LDY #0                  ; Clear Galactic Chart PLAYFIELD memory index
-                 STY L.GCMEMMAPIND       ; Clear Galactic Chart memory map index
+                 STY L_GCMEMMAPIND       ; Clear Galactic Chart memory map index
 
- LOOP067         LDX L.GCMEMMAPIND       ; Load sector of Galactic Chart memory map
+ LOOP067         LDX L_GCMEMMAPIND       ; Load sector of Galactic Chart memory map
                  LDA GCMEMMAP,X          ;
                  BPL SKIP197             ; Skip if not a starbase sector
                  LDA #5                  ; Prep sector character index for starbase
@@ -8624,12 +8624,12 @@
                  LDA SECTORCHARTAB,X     ; Load custom character set code from table...
                  STA GCPFMEM+22,Y        ; ...and store it in Galactic Chart PLAYFIELD memory
                  INY                     ; Increment Galactic Chart PLAYFIELD memory index
-                 INC L.GCMEMMAPIND       ; Increment Galactic Chart memory map index
-                 LDA L.GCMEMMAPIND       ;
+                 INC L_GCMEMMAPIND       ; Increment Galactic Chart memory map index
+                 LDA L_GCMEMMAPIND       ;
                  AND #$0F                ;
                  BNE LOOP067             ; Next sector column until right border reached
 
-                 LDA #CCS.BORDERW        ; Draw right border
+                 LDA #CCS_BORDERW        ; Draw right border
                  STA GCPFMEM+22,Y        ;
 
                  INY                     ; Adjust Galactic Chart PLAYFIELD memory index
@@ -8777,15 +8777,15 @@
  ;      message "STARBASE SURROUNDED" is flashed in the title line and the beeper
  ;      sound pattern MESSAGE FROM STARBASE is played in subroutine BEEP ($B3A6).
 
- L.ISDESTROYED   = $6A                   ; Flags the destruction of a starbase.
+ L_ISDESTROYED   = $6A                   ; Flags the destruction of a starbase.
                                          ; Used values are:
                                          ;   $00 -> Starbase not destroyed
                                          ;   $02 -> Starbase has been destroyed
- L.NEWSECTOR     = $6A                   ; Sector to which the Zylon unit is tentatively moved
- L.ABSDIFFCOLUMN = $6B                   ; Absolute difference between new Zylon and starbase
+ L_NEWSECTOR     = $6A                   ; Sector to which the Zylon unit is tentatively moved
+ L_ABSDIFFCOLUMN = $6B                   ; Absolute difference between new Zylon and starbase
                                          ;   column on Galactic Chart in PM pixels
- L.LOOPCNT2      = $6B                   ; Loop counter. Used values are: 0..1.
- L.DIRECTIONIND  = $6A                   ; Compass rose direction index.
+ L_LOOPCNT2      = $6B                   ; Loop counter. Used values are: 0..1.
+ L_DIRECTIONIND  = $6A                   ; Compass rose direction index.
                                          ; Used values are: 0..7.
 
  ;*** Increment counters and flash low-energy alert *****************************
@@ -8796,7 +8796,7 @@
                  BPL SKIP198             ; Skip if counter < 128.
 
                  LDY ENERGYD1            ; When energy drops below 1000 units...
-                 CPY #CCS.COL2!CCS.0     ;
+                 CPY #CCS_COL2|CCS_0     ;
                  BNE SKIP198             ;
                  LDX #$44                ; ...prep new DLI background color {PINK}
 
@@ -8812,7 +8812,7 @@
                  BIT GCSTATSHL           ; Skip if Shields are OK
                  BPL SKIP200             ;
                  BVS SKIP199             ; Skip if Shields are destroyed
-                 LDA RANDOM              ; If Shields are damaged, Shields colors are...
+                 LDA LRANDOM              ; If Shields are damaged, Shields colors are...
                  CMP #200                ; ...unchanged with probability of 78% (200:256)
                  BCC SKIP201             ;
 
@@ -8846,7 +8846,7 @@
                  DEC EXPLLIFE            ; Decrement explosion lifetime
                  BNE SKIP204             ; Skip if explosion lifetime still counting
 
-                 LDX #NUMSPCOBJ.NORM     ; Explosion finished,...
+                 LDX #NUMSPCOBJ_NORM     ; Explosion finished,...
                  STX MAXSPCOBJIND        ; ...restore normal number of space objects
 
  SKIP204         CMP #112                ; Skip if explosion lifetime >= 112 game loops
@@ -8870,9 +8870,9 @@
                  LDX #4                  ; Increment stardate clock of Galactic Chart Panel
  LOOP069         INC GCSTARDAT,X         ;
                  LDA GCSTARDAT,X         ;
-                 CMP #[CCS.COL3!ROM.9]+1 ;
+                 CMP #(CCS_COL3|ROM_9)+1 ;
                  BCC SKIP208             ;
-                 LDA #[CCS.COL3!ROM.0]   ;
+                 LDA #(CCS_COL3|ROM_0)   ;
                  STA GCSTARDAT,X         ;
                  CPX #3                  ;
                  BNE SKIP207             ;
@@ -8899,7 +8899,7 @@
                  BNE SKIP209             ;
 
  ;*** Is starbase surrounded? ***************************************************
-                 STX L.ISDESTROYED       ; Init L.ISDESTROYED with 0 (starbase not destroyed)
+                 STX L_ISDESTROYED       ; Init L_ISDESTROYED with 0 (starbase not destroyed)
  LOOP070         LDA GCMEMMAP,X          ; Loop over all sectors, load sector type
                  BPL SKIP212             ; Skip if not a starbase sector
 
@@ -8909,7 +8909,7 @@
  ;*** Starbase is surrounded, destroy starbase **********************************
                  LDA #2                  ; Replace starbase sector with 2-Zylon sector
                  STA GCMEMMAP,X          ;
-                 STA L.ISDESTROYED       ; Flag destruction of starbase
+                 STA L_ISDESTROYED       ; Flag destruction of starbase
 
                  SEC                     ; SCORE := SCORE - 18
                  LDA SCORE               ;
@@ -8923,7 +8923,7 @@
                  BPL LOOP070             ; Next sector
 
  ;*** Report starbase destruction ***********************************************
-                 LDA L.ISDESTROYED       ; Skip if no starbase has been destroyed
+                 LDA L_ISDESTROYED       ; Skip if no starbase has been destroyed
                  BEQ SKIP213             ;
 
                  BIT GCSTATRAD           ; Skip notification if Subspace Radio destroyed
@@ -8947,7 +8947,7 @@
                  STA HUNTTIM             ;
 
                  LDY #127                ; Loop over 127(+1) randomly picked sectors
- LOOP071         LDA RANDOM              ;
+ LOOP071         LDA LRANDOM              ;
                  AND #$7F                ;
                  TAX                     ;
                  LDA GCMEMMAP,X          ; Skip if starbase sector found
@@ -9017,7 +9017,7 @@
                  CPY #$0A                ; Next sector if it has marker bit B5 set (!)
                  BCS LOOP073             ;
 
-                 LDA RANDOM              ; Get random number
+                 LDA LRANDOM              ; Get random number
                  CMP MOVEPROBTAB,Y       ; Get movement probability
                  BCS LOOP073             ; Next sector if movement probability < random number
 
@@ -9029,7 +9029,7 @@
  LOOP076         CLC                     ;
                  TXA                     ;
                  ADC COMPASSOFFTAB,Y     ; Add direction offset to current sector
-                 STA L.NEWSECTOR         ; Store new sector
+                 STA L_NEWSECTOR         ; Store new sector
 
                  AND #$0F                ; Calc distance ("block distance") between...
                  SEC                     ; ...starbase sector and tentative new Zylon sector
@@ -9037,8 +9037,8 @@
                  BCS SKIP219             ;
                  EOR #$FF                ;
                  ADC #1                  ;
- SKIP219         STA L.ABSDIFFCOLUMN     ;
-                 LDA L.NEWSECTOR         ;
+ SKIP219         STA L_ABSDIFFCOLUMN     ;
+                 LDA L_NEWSECTOR         ;
                  LSR A                   ;
                  LSR A                   ;
                  LSR A                   ;
@@ -9049,7 +9049,7 @@
                  EOR #$FF                ;
                  ADC #1                  ;
  SKIP220         CLC                     ;
-                 ADC L.ABSDIFFCOLUMN     ;
+                 ADC L_ABSDIFFCOLUMN     ;
 
                  STA NEWZYLONDIST,Y      ; Store distance in distance array
                  DEY                     ;
@@ -9057,7 +9057,7 @@
 
  ;*** Pick the shortest distance to starbase ************************************
                  LDA #1                  ; Loop over compass rose directions twice to...
-                 STA L.LOOPCNT2          ; ...provoke movement regardless of truncation errors
+                 STA L_LOOPCNT2          ; ...provoke movement regardless of truncation errors
 
  LOOP077         LDY #7                  ;
  LOOP078         LDA NEWZYLONDIST,Y      ; Loop over all 7(+1) compass rose directions
@@ -9069,7 +9069,7 @@
                  ADC COMPASSOFFTAB,Y     ;
                  BMI SKIP222             ; Next direction if new sector outside Galactic Chart
 
-                 STY L.DIRECTIONIND      ; Save compass rose direction index
+                 STY L_DIRECTIONIND      ; Save compass rose direction index
                  TAY                     ;
                  LDA GCMEMMAP,Y          ;
                  BNE SKIP221             ; Next direction if new sector not empty
@@ -9084,12 +9084,12 @@
                  STA GCMEMMAP,X          ; Clear old Zylon unit sector
                  BEQ SKIP223             ; Next sector (unconditional branch)
 
- SKIP221         LDY L.DIRECTIONIND      ; Restore compass rose direction index
+ SKIP221         LDY L_DIRECTIONIND      ; Restore compass rose direction index
  SKIP222         DEY                     ; Next compass rose direction
                  BPL LOOP078             ;
 
                  INC OLDZYLONDIST        ; Increment center distance
-                 DEC L.LOOPCNT2          ;
+                 DEC L_LOOPCNT2          ;
                  BPL LOOP077             ; Loop over all compass rose directions one more time
 
  SKIP223         JMP LOOP073             ; Next sector
@@ -9303,30 +9303,30 @@
 
                                          ; TERM3 is a 24-bit value, represented by 3 bytes as
                                          ; $(sign)(high byte)(low byte)
- L.TERM3LO       = $6A                   ; TERM3 (high byte), where TERM3 := TERM2 / 64
- L.TERM3HI       = $6B                   ; TERM3 (low byte),  where TERM3 := TERM2 / 64
- L.TERM3SIGN     = $6C                   ; TERM3 (sign),      where TERM3 := TERM2 / 64
+ L_TERM3LO       = $6A                   ; TERM3 (high byte), where TERM3 := TERM2 / 64
+ L_TERM3HI       = $6B                   ; TERM3 (low byte),  where TERM3 := TERM2 / 64
+ L_TERM3SIGN     = $6C                   ; TERM3 (sign),      where TERM3 := TERM2 / 64
 
  ROTATE          LDA ZPOSSIGN,X          ;
                  EOR #$01                ;
                  BEQ SKIP224             ; Skip if sign of TERM2 is positive
                  LDA #$FF                ;
 
- SKIP224         STA L.TERM3HI           ; If TERM2 pos. -> TERM3 := $0000xx (= TERM2 / 256)
-                 STA L.TERM3SIGN         ; If TERM2 neg. -> TERM3 := $FFFFxx (= TERM2 / 256)
+ SKIP224         STA L_TERM3HI           ; If TERM2 pos. -> TERM3 := $0000xx (= TERM2 / 256)
+                 STA L_TERM3SIGN         ; If TERM2 neg. -> TERM3 := $FFFFxx (= TERM2 / 256)
                  LDA ZPOSHI,X            ; where xx := TERM2 (high byte)
-                 STA L.TERM3LO           ;
+                 STA L_TERM3LO           ;
 
-                 LDA RANDOM              ; (?) Hack to avoid messing with two-complement's
+                 LDA LRANDOM              ; (?) Hack to avoid messing with two-complement's
                  ORA #$BF                ; (?) arithmetic? Provides two least significant
                  EOR ZPOSLO,X            ; (?) bits B1..0 in TERM3.
 
                  ASL A                   ; TERM3 := TERM3 * 4 (= TERM2 / 256 * 4 = TERM2 / 64)
-                 ROL L.TERM3LO           ;
-                 ROL L.TERM3HI           ;
+                 ROL L_TERM3LO           ;
+                 ROL L_TERM3HI           ;
                  ASL A                   ;
-                 ROL L.TERM3LO           ;
-                 ROL L.TERM3HI           ;
+                 ROL L_TERM3LO           ;
+                 ROL L_TERM3HI           ;
 
                  LDA JOYSTICKDELTA       ; Toggle SIGN for next call of ROTATE
                  EOR #$FF                ;
@@ -9336,30 +9336,30 @@
  ;*** Addition ******************************************************************
                  CLC                     ; TERM1 := TERM1 + TERM3
                  LDA ZPOSLO,Y            ; (24-bit addition)
-                 ADC L.TERM3LO           ;
+                 ADC L_TERM3LO           ;
                  STA ZPOSLO,Y            ;
 
                  LDA ZPOSHI,Y            ;
-                 ADC L.TERM3HI           ;
+                 ADC L_TERM3HI           ;
                  STA ZPOSHI,Y            ;
 
                  LDA ZPOSSIGN,Y          ;
-                 ADC L.TERM3SIGN         ;
+                 ADC L_TERM3SIGN         ;
                  STA ZPOSSIGN,Y          ;
                  RTS                     ;
 
  ;*** Subtraction ***************************************************************
  SKIP225         SEC                     ; TERM1 := TERM1 - TERM3
                  LDA ZPOSLO,Y            ; (24-bit subtraction)
-                 SBC L.TERM3LO           ;
+                 SBC L_TERM3LO           ;
                  STA ZPOSLO,Y            ;
 
                  LDA ZPOSHI,Y            ;
-                 SBC L.TERM3HI           ;
+                 SBC L_TERM3HI           ;
                  STA ZPOSHI,Y            ;
 
                  LDA ZPOSSIGN,Y          ;
-                 SBC L.TERM3SIGN         ;
+                 SBC L_TERM3SIGN         ;
                  STA ZPOSSIGN,Y          ;
                  RTS                     ;
 
@@ -9403,14 +9403,14 @@
  ;     0..4  -> Position vector of a PLAYER space object
  ;     5..48 -> Position vector of a PLAYFIELD space object
 
- L.PIXELCOLUMN   = $6D                   ; Saves relative pixel column number
+ L_PIXELCOLUMN   = $6D                   ; Saves relative pixel column number
 
  SCREENCOLUMN    CMP #80                 ; If pixel is offscreen (A > 79)...
                  BCS SKIP233             ; ...return via initializing a new position vector
 
-                 STA L.PIXELCOLUMN       ; Save relative pixel column number
+                 STA L_PIXELCOLUMN       ; Save relative pixel column number
                  LDA #80                 ; If PLAYFIELD space object -> A := CENTERCOL = 80
-                 CPX #NUMSPCOBJ.PL       ; If PLAYER space object    -> A := CENTERCOL = 125
+                 CPX #NUMSPCOBJ_PL       ; If PLAYER space object    -> A := CENTERCOL = 125
                  BCS SKIP226             ;
                  LDA #125                ;
 
@@ -9418,13 +9418,13 @@
                  BNE SKIP227             ;
 
                  SEC                     ; Pixel in left screen half (x-coordinate negative)
-                 INC L.PIXELCOLUMN       ;
-                 SBC L.PIXELCOLUMN       ;
+                 INC L_PIXELCOLUMN       ;
+                 SBC L_PIXELCOLUMN       ;
                  STA PIXELCOLUMN,X       ; Pixel column := CENTERCOL - (rel. pixel column + 1)
                  RTS                     ; Return
 
  SKIP227         CLC                     ; Pixel in right screen half (x-coordinate positive)
-                 ADC L.PIXELCOLUMN       ;
+                 ADC L_PIXELCOLUMN       ;
                  STA PIXELCOLUMN,X       ; Pixel column := CENTERCOL + relative pixel column
                  RTS                     ; Return
 
@@ -9475,16 +9475,16 @@
  ;     0..4  -> Position vector of a PLAYER space object
  ;     5..48 -> Position vector of a PLAYFIELD space object
 
- L.PIXELROW      = $6D                   ; Saves relative pixel row number
+ L_PIXELROW      = $6D                   ; Saves relative pixel row number
 
  SCREENROW       CMP #50                 ; If pixel is offscreen (A > 49)...
                  BCS SKIP233             ; ...return via initializing a new position vector
 
-                 STA L.PIXELROW          ; Save relative pixel row number
+                 STA L_PIXELROW          ; Save relative pixel row number
                  LDA #50                 ; If PLAYFIELD space object -> A := CENTERROW = 50
-                 CPX #NUMSPCOBJ.PL       ;
+                 CPX #NUMSPCOBJ_PL       ;
                  BCS SKIP228             ;
-                 ASL L.PIXELROW          ; If PLAYER space object -> Double pixel row number
+                 ASL L_PIXELROW          ; If PLAYER space object -> Double pixel row number
                  LDA #122                ; If PLAYER space object ->    A := CENTERROW = 122
 
  SKIP228         BIT SHIPVIEW            ; Skip if not in Long-Range Scan view
@@ -9493,7 +9493,7 @@
                  BIT GCSTATLRS           ; Skip if Long-Range Scan OK
                  BPL SKIP229             ;
 
-                 BIT RANDOM              ; Long-Range Scan damaged...
+                 BIT LRANDOM              ; Long-Range Scan damaged...
                  BVC SKIP231             ; ...branch randomly to pixel row number calculation
                  BVS SKIP232             ; ...(mirror effect)
 
@@ -9505,17 +9505,17 @@
                  BEQ SKIP232             ; Skip if y-coordinate neg. (Front or Aft view)
 
  SKIP231         SEC                     ; Pixel in upper screen half (z or y coordinate pos.)
-                 INC L.PIXELROW          ;
-                 SBC L.PIXELROW          ;
+                 INC L_PIXELROW          ;
+                 SBC L_PIXELROW          ;
                  STA PIXELROWNEW,X       ; Pixel row  := CENTERROW - (rel. pixel row + 1)
                  RTS                     ; Return
 
  SKIP232         CLC                     ; Pixel in lower screen half (y or z coordinate neg.)
-                 ADC L.PIXELROW          ;
+                 ADC L_PIXELROW          ;
                  STA PIXELROWNEW,X       ; Pixel row := CENTERROW + relative pixel row
                  RTS                     ; Return
 
- SKIP233         CPX #NUMSPCOBJ.PL       ; Space object is offscreen. If it is a...
+ SKIP233         CPX #NUMSPCOBJ_PL       ; Space object is offscreen. If it is a...
                  BCS INITPOSVEC          ; ...PLAYFIELD space object -> New position vector
                  LDA #251                ; ...PLAYER space object    -> Push PLAYER offscreen
                  STA PIXELROWNEW,X       ;                              Why a value of 251 (?)
@@ -9575,7 +9575,7 @@
  ;     Second digit of z-coordinate is -MAX(RNDY,RNDX), where
  ;     RNDY := RND($00..$0F), RNDX := RND($00..$0F).
  ;
- ; o   LONG-RANGE SCAN VIEW
+ ; o   LLONG-RANGE SCAN VIEW
  ;
  ;     +------------+---------------------------------------+
  ;     | Coordinate |                 Values                |
@@ -9589,26 +9589,26 @@
  ;
  ;   X = Position vector index. Used values are: 0..48.
 
- L.MAXRNDXY      = $6A                   ; Saves MAX(new y-coordinate (high byte), ...
+ L_MAXRNDXY      = $6A                   ; Saves MAX(new y-coordinate (high byte), ...
                                          ;  ...new x-coordinate (high byte))
 
  INITPOSVEC      LDA #99                 ; Init to offscreen pixel row and column numbers
                  STA PIXELROWNEW,X       ;
                  STA PIXELCOLUMN,X       ;
 
-                 CPX #NUMSPCOBJ.NORM     ; Return if pos vector is explosion frag space obj
+                 CPX #NUMSPCOBJ_NORM     ; Return if pos vector is explosion frag space obj
                  BCS SKIP234             ; This avoids creating new explosion frag space objs
 
-                 LDA RANDOM              ; RNDY := RND($00..$0F)
+                 LDA LRANDOM              ; RNDY := RND($00..$0F)
                  AND #$0F                ;
-                 STA L.MAXRNDXY          ; Save RNDY
+                 STA L_MAXRNDXY          ; Save RNDY
                  STA YPOSHI,X            ; y-coordinate (high byte) := RNDY
 
-                 LDA RANDOM              ; RNDX := RND($00..$0F)
+                 LDA LRANDOM              ; RNDX := RND($00..$0F)
                  AND #$0F                ;
-                 CMP L.MAXRNDXY          ;
+                 CMP L_MAXRNDXY          ;
                  BCC SKIP235             ;
-                 STA L.MAXRNDXY          ; Save MAX(RNDY,RNDX)
+                 STA L_MAXRNDXY          ; Save MAX(RNDY,RNDX)
  SKIP235         STA XPOSHI,X            ; x-coordinate (high byte) := RNDX
 
                  LDA #$0F                ; z-coordinate (high byte) := $0F
@@ -9624,7 +9624,7 @@
                  STA XPOSLO,X            ; x-coordinate (low byte) := 0
                  STA YPOSLO,X            ; y-coordinate (low byte) := 0
                  SEC                     ; z-coordinate (high byte) := -MAX(RNDY,RNDX)
-                 SBC L.MAXRNDXY          ;
+                 SBC L_MAXRNDXY          ;
                  STA ZPOSHI,X            ;
                  LDA #$80                ; z-coordinate (low byte) := $80
                  STA ZPOSLO,X            ;
@@ -9633,9 +9633,9 @@
                  BVC RNDINVXY            ;
 
                                          ; Long-Range Scan view only:
-                 LDA RANDOM              ; x-coordinate (high byte) := RND($00..$FF)
+                 LDA LRANDOM              ; x-coordinate (high byte) := RND($00..$FF)
                  STA XPOSHI,X            ;
-                 LDA RANDOM              ; z-coordinate (high byte) := RND($00..$FF)
+                 LDA LRANDOM              ; z-coordinate (high byte) := RND($00..$FF)
                  STA ZPOSHI,X            ;
                  AND #$01                ; Invert z-coordinate randomly
                  STA ZPOSSIGN,X          ;
@@ -9657,7 +9657,7 @@
  ;
  ;   X = Position vector index. Used values are: 0..48.
 
- RNDINVXY        LDA RANDOM              ; Set sign of y-coordinate randomly
+ RNDINVXY        LDA LRANDOM              ; Set sign of y-coordinate randomly
                  AND #$01                ;
                  STA YPOSSIGN,X          ;
                  BNE SKIP237             ; Skip if sign positive
@@ -9669,7 +9669,7 @@
                  SBC YPOSHI,X            ;
                  STA YPOSHI,X            ;
 
- SKIP237         LDA RANDOM              ; Set sign of x-coordinate randomly
+ SKIP237         LDA LRANDOM              ; Set sign of x-coordinate randomly
                  AND #$01                ;
                  STA XPOSSIGN,X          ;
                  BNE SKIP238             ; Skip if sign positive
@@ -9785,7 +9785,7 @@
                  BPL SKIP242             ;
 
                  LDA NEWVELOCITY         ; Store RND(0..current velocity) to current velocity
-                 AND RANDOM              ;
+                 AND LRANDOM              ;
                  STA VELOCITYLO          ;
 
  SKIP242         LDY #VELOCD1-PANELTXT-1 ; Update digits of VELOCITY readout
@@ -9809,7 +9809,7 @@
 
                  LDA RANGEC1+2           ; Hack to clear RANGE digit 3 when in hyperwarp:
                  STA RANGEC1+3           ; Copy RANGE digit 2 to digit 3
-                 CMP #CCS.9+1            ; Skip if digit character > '9' (= 'infinity' char)
+                 CMP #CCS_9+1            ; Skip if digit character > '9' (= 'infinity' char)
                  BCS SKIP243             ;
 
                  LDX TRACKDIGIT          ; Get z-coordinate (low byte) of tracked space object
@@ -9863,9 +9863,9 @@
 
                  DEC ENERGYD1,X          ; Decrement energy digit character
                  LDA ENERGYD1,X          ;
-                 CMP #CCS.COL2!CCS.0     ;
+                 CMP #CCS_COL2|CCS_0     ;
                  BCS SKIP246             ; Return if digit character >= '0'
-                 LDA #CCS.COL2!CCS.9     ;
+                 LDA #CCS_COL2|CCS_9     ;
                  STA ENERGYD1,X          ; Store digit character '9'
 
  ;*** Decrement score when crossing a 100-energy-unit boundary while subtracting 
@@ -9881,7 +9881,7 @@
                  BPL DECENERGY           ; Next digit
 
  ;*** Energy is zero, game over *************************************************
-                 LDX #CCS.SPC            ; Clear 4-digit ENERGY readout
+                 LDX #CCS_SPC            ; Clear 4-digit ENERGY readout
                  TXA                     ;
                  LDY #3                  ;
  LOOP079         STA ENERGYD1,Y          ;
@@ -9917,8 +9917,8 @@
  ; NOTE: If the digits of either the THETA or PHI readout are to be displayed and
  ; the x or y position vector component (high byte) is $FF then tweak the value
  ; to $FE. This avoids accessing table MAPTOBCD99 ($0EE9) with an index of $FF
- ; that would return the special value $EA. This value represents the CCS.INF
- ; ($0E) and CCS.SPC ($0A) characters (see comments in subroutine INITIALIZE
+ ; that would return the special value $EA. This value represents the CCS_INF
+ ; ($0E) and CCS_SPC ($0A) characters (see comments in subroutine INITIALIZE
  ; ($B3BA)) that are displayed by the RANGE readout only.
  ;
  ; INPUT
@@ -9936,15 +9936,15 @@
  ;     $23 -> First character (sign) of RANGE readout (z-coordinate of tracked
  ;            space object)
 
- L.SIGNCHAR      = $6A                   ; Saves sign character
+ L_SIGNCHAR      = $6A                   ; Saves sign character
 
  SHOWCOORD       CLC                     ; Add index of tracked space object...
                  ADC TRACKDIGIT          ; ...to position vector component offset
                  TAX                     ; Save position vector component index
 
  ;*** Display sign in Control Panel Display *************************************
-                 LDA #CCS.PLUS           ; Save '+' (CCS.PLUS) to sign character
-                 STA L.SIGNCHAR          ;
+                 LDA #CCS_PLUS           ; Save '+' (CCS_PLUS) to sign character
+                 STA L_SIGNCHAR          ;
 
                  LDA ZPOSSIGN,X          ; Prep sign of coordinate
                  LSR A                   ;
@@ -9952,10 +9952,10 @@
                  BCS SKIP247             ; Skip if sign is positive
 
                  EOR #$FF                ; Invert coordinate (high byte)
-                 DEC L.SIGNCHAR          ; Change saved sign character to '-' (CCS.MINUS)
+                 DEC L_SIGNCHAR          ; Change saved sign character to '-' (CCS_MINUS)
 
  SKIP247         TAX                     ; Save coordinate (high byte)
-                 LDA L.SIGNCHAR          ; Store sign character in Control Panel Display
+                 LDA L_SIGNCHAR          ; Store sign character in Control Panel Display
                  STA PANELTXT,Y          ;
 
  ;*** Get RANGE digits **********************************************************
@@ -9964,7 +9964,7 @@
                  BEQ SHOWDIGITS          ;
 
                  CPX #$FF                ; If coordinate (high byte) = $FF decrement value
-                 BNE SHOWDIGITS          ; This avoids output of CCS.INFINITY in...
+                 BNE SHOWDIGITS          ; This avoids output of CCS_INFINITY in...
                  DEX                     ; ...THETA and PHI readouts
 
  ;*******************************************************************************
@@ -10409,9 +10409,9 @@
  ;*** Display List fragments ****************************************************
  ;
  ; LOCAL VARIABLES
- PFMEM.C0R0      = PFMEM+0*40                          ; Start address of PLAYFIELD row 0
- PFMEM.C0R5      = PFMEM+5*40                          ; Start address of PLAYFIELD row 5
- PFMEM.C0R17     = PFMEM+17*40                         ; Start address of PLAYFIELD row 17
+ PFMEM_C0R0      = PFMEM+0*40                          ; Start address of PLAYFIELD row 0
+ PFMEM_C0R5      = PFMEM+5*40                          ; Start address of PLAYFIELD row 5
+ PFMEM_C0R17     = PFMEM+17*40                         ; Start address of PLAYFIELD row 17
 
  ;*** Display List fragment for Control Panel Display (bottom text window) ******
  DLSTFRAG        .BYTE $8D                             ; GR7 + DLI
@@ -10428,16 +10428,16 @@
  DLSTFRAGLRS     .BYTE $00                             ; BLK1
                  .BYTE $00                             ; BLK1
                  .BYTE $46,<LRSHEADER,>LRSHEADER       ; GR1 @ LRSHEADER
-                 .BYTE $4D,<PFMEM.C0R5,>PFMEM.C0R5     ; GR7 @ PFMEM.C0R5
+                 .BYTE $4D,<PFMEM_C0R5,>PFMEM_C0R5     ; GR7 @ PFMEM_C0R5
 
  ;*** Display List fragment for Aft view ****************************************
  DLSTFRAGAFT     .BYTE $00                             ; BLK1
                  .BYTE $00                             ; BLK1
                  .BYTE $46,<AFTHEADER,>AFTHEADER       ; GR1 @ AFTHEADER
-                 .BYTE $4D,<PFMEM.C0R5,>PFMEM.C0R5     ; GR7 @ PFMEM.C0R5
+                 .BYTE $4D,<PFMEM_C0R5,>PFMEM_C0R5     ; GR7 @ PFMEM_C0R5
 
  ;*** Display List fragment for Front view and Title text line ******************
- DLSTFRAGFRONT   .BYTE $4D,<PFMEM.C0R0,>PFMEM.C0R0     ; GR7 @ PFMEM.C0R0
+ DLSTFRAGFRONT   .BYTE $4D,<PFMEM_C0R0,>PFMEM_C0R0     ; GR7 @ PFMEM_C0R0
                  .BYTE $0D                             ; GR7
                  .BYTE $0D                             ; GR7
                  .BYTE $0D                             ; GR7
@@ -10445,7 +10445,7 @@
                  .BYTE $0D                             ; GR7
                  .BYTE $30                             ; BLK4
                  .BYTE $46,<TITLETXT,>TITLETXT         ; GR1 @ TITLETXT
-                 .BYTE $4D,<PFMEM.C0R17,>PFMEM.C0R17   ; GR7 @ PFMEM.C0R17
+                 .BYTE $4D,<PFMEM_C0R17,>PFMEM_C0R17   ; GR7 @ PFMEM_C0R17
 
  ;*** Display List fragment offsets relative to DLSTFRAG ************************
  DLSTFRAGOFFTAB  .BYTE DLSTFRAGFRONT-DLSTFRAG          ; Front view
@@ -10569,7 +10569,7 @@
  ;*** Joystick increments *******************************************************
  STICKINCTAB     .BYTE 0                               ; Centered
                  .BYTE 1                               ; Right or up
-                 .BYTE -1                              ; Left or down
+                 .BYTE char(-1)                              ; Left or down
                  .BYTE 0                               ; Centered
 
  ;*** 3-byte elements to draw cross hairs and Attack Computer Display ***********
@@ -10607,24 +10607,24 @@
  DOWN            = $80
  RIGHT           = $00
 
- DRAWLINESTAB    .BYTE 80,40,DOWN!7                    ; Line 1
-                 .BYTE 80,54,DOWN!7                    ; Line 2
+ DRAWLINESTAB    .BYTE 80,40,DOWN|7                    ; Line 1
+                 .BYTE 80,54,DOWN|7                    ; Line 2
 
-                 .BYTE 119,70,RIGHT!30                 ; Line 3
-                 .BYTE 119,86,RIGHT!30                 ; Line 4
-                 .BYTE 119,70,DOWN!17                  ; Line 5
-                 .BYTE 148,70,DOWN!17                  ; Line 6
-                 .BYTE 120,78,RIGHT!6                  ; Line 7
-                 .BYTE 126,75,RIGHT!15                 ; Line 8
-                 .BYTE 126,81,RIGHT!15                 ; Line 9
-                 .BYTE 141,78,RIGHT!7                  ; Line 10
-                 .BYTE 133,71,DOWN!4                   ; Line 11
-                 .BYTE 126,76,DOWN!5                   ; Line 12
-                 .BYTE 140,76,DOWN!5                   ; Line 13
-                 .BYTE 133,82,DOWN!4                   ; Line 14
+                 .BYTE 119,70,RIGHT|30                 ; Line 3
+                 .BYTE 119,86,RIGHT|30                 ; Line 4
+                 .BYTE 119,70,DOWN|17                  ; Line 5
+                 .BYTE 148,70,DOWN|17                  ; Line 6
+                 .BYTE 120,78,RIGHT|6                  ; Line 7
+                 .BYTE 126,75,RIGHT|15                 ; Line 8
+                 .BYTE 126,81,RIGHT|15                 ; Line 9
+                 .BYTE 141,78,RIGHT|7                  ; Line 10
+                 .BYTE 133,71,DOWN|4                   ; Line 11
+                 .BYTE 126,76,DOWN|5                   ; Line 12
+                 .BYTE 140,76,DOWN|5                   ; Line 13
+                 .BYTE 133,82,DOWN|4                   ; Line 14
 
-                 .BYTE 62,50,RIGHT!15                  ; Line 15
-                 .BYTE 84,50,RIGHT!15                  ; Line 16
+                 .BYTE 62,50,RIGHT|15                  ; Line 15
+                 .BYTE 84,50,RIGHT|15                  ; Line 16
                  .BYTE $FE                             ; End marker
 
  ;*** 3-byte elements to draw our starship's shape in Long-Range Scan view ******
@@ -10636,11 +10636,11 @@
  ;         ## ## ## ## ##
  ;         ##    ##    ##
 
-                 .BYTE 78,53,DOWN!2                    ; Line 17
-                 .BYTE 79,52,DOWN!2                    ; Line 18
-                 .BYTE 80,50,DOWN!5                    ; Line 19
-                 .BYTE 81,52,DOWN!2                    ; Line 20
-                 .BYTE 82,53,DOWN!2                    ; Line 21
+                 .BYTE 78,53,DOWN|2                    ; Line 17
+                 .BYTE 79,52,DOWN|2                    ; Line 18
+                 .BYTE 80,50,DOWN|5                    ; Line 19
+                 .BYTE 81,52,DOWN|2                    ; Line 20
+                 .BYTE 82,53,DOWN|2                    ; Line 21
                  .BYTE $FE                             ; End marker
 
  ;*** Initial x and y coordinates of a star during hyperwarp ********************
@@ -10673,115 +10673,115 @@
  ; Row 1: "V:00 K:00 E:9999 T:0"
  ; Row 2: " O:-00 O:-00 R:-000 "
 
- PANELTXTTAB     .BYTE CCS.V
-                 .BYTE CCS.COLON
-                 .BYTE CCS.0
-                 .BYTE CCS.0
-                 .BYTE CCS.SPC
-                 .BYTE CCS.COL1!CCS.K
-                 .BYTE CCS.COL1!CCS.COLON
-                 .BYTE CCS.COL1!CCS.0
-                 .BYTE CCS.COL1!CCS.0
-                 .BYTE CCS.SPC
-                 .BYTE CCS.COL2!CCS.E
-                 .BYTE CCS.COL2!CCS.COLON
-                 .BYTE CCS.COL2!CCS.9
-                 .BYTE CCS.COL2!CCS.9
-                 .BYTE CCS.COL2!CCS.9
-                 .BYTE CCS.COL2!CCS.9
-                 .BYTE CCS.SPC
-                 .BYTE CCS.T
-                 .BYTE CCS.COLON
-                 .BYTE CCS.0
+ PANELTXTTAB     .BYTE CCS_V
+                 .BYTE CCS_COLON
+                 .BYTE CCS_0
+                 .BYTE CCS_0
+                 .BYTE CCS_SPC
+                 .BYTE CCS_COL1|CCS_K
+                 .BYTE CCS_COL1|CCS_COLON
+                 .BYTE CCS_COL1|CCS_0
+                 .BYTE CCS_COL1|CCS_0
+                 .BYTE CCS_SPC
+                 .BYTE CCS_COL2|CCS_E
+                 .BYTE CCS_COL2|CCS_COLON
+                 .BYTE CCS_COL2|CCS_9
+                 .BYTE CCS_COL2|CCS_9
+                 .BYTE CCS_COL2|CCS_9
+                 .BYTE CCS_COL2|CCS_9
+                 .BYTE CCS_SPC
+                 .BYTE CCS_T
+                 .BYTE CCS_COLON
+                 .BYTE CCS_0
 
-                 .BYTE CCS.SPC
-                 .BYTE CCS.THETA
-                 .BYTE CCS.COLON
-                 .BYTE CCS.MINUS
-                 .BYTE CCS.0
-                 .BYTE CCS.0
-                 .BYTE CCS.SPC
-                 .BYTE CCS.COL1!CCS.PHI
-                 .BYTE CCS.COL1!CCS.COLON
-                 .BYTE CCS.MINUS
-                 .BYTE CCS.0
-                 .BYTE CCS.0
-                 .BYTE CCS.SPC
-                 .BYTE CCS.COL2!CCS.R
-                 .BYTE CCS.COL2!CCS.COLON
-                 .BYTE CCS.MINUS
-                 .BYTE CCS.0
-                 .BYTE CCS.0
-                 .BYTE CCS.0
-                 .BYTE CCS.SPC
+                 .BYTE CCS_SPC
+                 .BYTE CCS_THETA
+                 .BYTE CCS_COLON
+                 .BYTE CCS_MINUS
+                 .BYTE CCS_0
+                 .BYTE CCS_0
+                 .BYTE CCS_SPC
+                 .BYTE CCS_COL1|CCS_PHI
+                 .BYTE CCS_COL1|CCS_COLON
+                 .BYTE CCS_MINUS
+                 .BYTE CCS_0
+                 .BYTE CCS_0
+                 .BYTE CCS_SPC
+                 .BYTE CCS_COL2|CCS_R
+                 .BYTE CCS_COL2|CCS_COLON
+                 .BYTE CCS_MINUS
+                 .BYTE CCS_0
+                 .BYTE CCS_0
+                 .BYTE CCS_0
+                 .BYTE CCS_SPC
 
  ;*** Text of Galactic Chart Panel Display **************************************
  ; Row 1: "WARP ENERGY:   0    "
  ; Row 2: "TARGETS:  DC:PESCLR "
  ; Row 3: "STAR DATE:00.00     "
 
-                 .BYTE ROM.W
-                 .BYTE ROM.A
-                 .BYTE ROM.R
-                 .BYTE ROM.P
-                 .BYTE ROM.SPC
-                 .BYTE ROM.E
-                 .BYTE ROM.N
-                 .BYTE ROM.E
-                 .BYTE ROM.R
-                 .BYTE ROM.G
-                 .BYTE ROM.Y
-                 .BYTE ROM.COLON
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
-                 .BYTE ROM.0
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
+                 .BYTE ROM_W
+                 .BYTE ROM_A
+                 .BYTE ROM_R
+                 .BYTE ROM_P
+                 .BYTE ROM_SPC
+                 .BYTE ROM_E
+                 .BYTE ROM_N
+                 .BYTE ROM_E
+                 .BYTE ROM_R
+                 .BYTE ROM_G
+                 .BYTE ROM_Y
+                 .BYTE ROM_COLON
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
+                 .BYTE ROM_0
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
 
-                 .BYTE CCS.COL2!ROM.T
-                 .BYTE CCS.COL2!ROM.A
-                 .BYTE CCS.COL2!ROM.R
-                 .BYTE CCS.COL2!ROM.G
-                 .BYTE CCS.COL2!ROM.E
-                 .BYTE CCS.COL2!ROM.T
-                 .BYTE CCS.COL2!ROM.S
-                 .BYTE CCS.COL2!ROM.COLON
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
-                 .BYTE ROM.D
-                 .BYTE ROM.C
-                 .BYTE ROM.COLON
-                 .BYTE ROM.P
-                 .BYTE ROM.E
-                 .BYTE ROM.S
-                 .BYTE ROM.C
-                 .BYTE ROM.L
-                 .BYTE ROM.R
-                 .BYTE ROM.SPC
+                 .BYTE CCS_COL2|ROM_T
+                 .BYTE CCS_COL2|ROM_A
+                 .BYTE CCS_COL2|ROM_R
+                 .BYTE CCS_COL2|ROM_G
+                 .BYTE CCS_COL2|ROM_E
+                 .BYTE CCS_COL2|ROM_T
+                 .BYTE CCS_COL2|ROM_S
+                 .BYTE CCS_COL2|ROM_COLON
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
+                 .BYTE ROM_D
+                 .BYTE ROM_C
+                 .BYTE ROM_COLON
+                 .BYTE ROM_P
+                 .BYTE ROM_E
+                 .BYTE ROM_S
+                 .BYTE ROM_C
+                 .BYTE ROM_L
+                 .BYTE ROM_R
+                 .BYTE ROM_SPC
 
-                 .BYTE CCS.COL3!ROM.S
-                 .BYTE CCS.COL3!ROM.T
-                 .BYTE CCS.COL3!ROM.A
-                 .BYTE CCS.COL3!ROM.R
-                 .BYTE ROM.SPC
-                 .BYTE CCS.COL3!ROM.D
-                 .BYTE CCS.COL3!ROM.A
-                 .BYTE CCS.COL3!ROM.T
-                 .BYTE CCS.COL3!ROM.E
-                 .BYTE CCS.COL3!ROM.COLON
-                 .BYTE CCS.COL3!ROM.0
-                 .BYTE CCS.COL3!ROM.0
-                 .BYTE CCS.COL3!ROM.DOT
-                 .BYTE CCS.COL3!ROM.0
-                 .BYTE CCS.COL3!ROM.0
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
-                 .BYTE ROM.SPC
+                 .BYTE CCS_COL3|ROM_S
+                 .BYTE CCS_COL3|ROM_T
+                 .BYTE CCS_COL3|ROM_A
+                 .BYTE CCS_COL3|ROM_R
+                 .BYTE ROM_SPC
+                 .BYTE CCS_COL3|ROM_D
+                 .BYTE CCS_COL3|ROM_A
+                 .BYTE CCS_COL3|ROM_T
+                 .BYTE CCS_COL3|ROM_E
+                 .BYTE CCS_COL3|ROM_COLON
+                 .BYTE CCS_COL3|ROM_0
+                 .BYTE CCS_COL3|ROM_0
+                 .BYTE CCS_COL3|ROM_DOT
+                 .BYTE CCS_COL3|ROM_0
+                 .BYTE CCS_COL3|ROM_0
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
+                 .BYTE ROM_SPC
 
  ;*** Galactic Chart sector type table ******************************************
  SECTORTYPETAB   .BYTE $CF                             ; Starbase
@@ -10796,96 +10796,96 @@
  ; LOCAL VARIABLES
  EOP             = $40                                 ; End of phrase
  EOS             = $80                                 ; End of segment
- LONG            = $C0                                 ; Display title phrase for a long time
+ LLONG            = $C0                                 ; Display title phrase for a long time
 
                                                        ; Title Phrase Offset, Text
  PHRASETAB       .BYTE $00                             ; (unused)
-                 .BYTE $05,$06,$02!EOP                 ; $01  "ATTACK COMPUTER ON"
-                 .BYTE $05,$06,$03!EOP                 ; $04  "ATTACK COMPUTER OFF"
-                 .BYTE $04,$02!EOP                     ; $07  "SHIELDS ON"
-                 .BYTE $04,$03!EOP                     ; $09  "SHIELDS OFF"
-                 .BYTE $06,$07,$02!EOP                 ; $0B  "COMPUTER TRACKING ON"
-                 .BYTE $07,$03!EOP                     ; $0E  "TRACKING OFF"
-                 .BYTE $08!EOP                         ; $10  "WHATS WRONG?"
-                 .BYTE $09,$0A!EOP                     ; $11  "HYPERWARP ENGAGED"
-                 .BYTE $0B,$0D!LONG                    ; $13  "STARBASE SURROUNDED"
-                 .BYTE $0B,$0C!LONG                    ; $15  "STARBASE DESTROYED"
-                 .BYTE $09,$0E!EOP                     ; $17  "HYPERWARP ABORTED"
-                 .BYTE $09,$0F!EOP                     ; $19  "HYPERWARP COMPLETE"
-                 .BYTE $10!LONG                        ; $1B  "HYPERSPACE"
-                 .BYTE $11,$12!EOS                     ; $1C  "ORBIT ESTABLISHED"
-                 .BYTE $16!EOP                         ; $1E  "STANDBY"
-                 .BYTE $13,$0E!EOP                     ; $1F  "DOCKING ABORTED"
-                 .BYTE $15,$0F!EOP                     ; $21  "TRANSFER COMPLETE"
-                 .BYTE $38!EOS                         ; $23  " "
-                 .BYTE $17!EOS                         ; $24  "STAR FLEET TO"
-                 .BYTE $19!EOS                         ; $25  "ALL UNITS"
-                 .BYTE $18!EOS                         ; $26  "STAR CRUISER 7"
-                 .BYTE $0C!EOS                         ; $27  "DESTROYED"
-                 .BYTE $1D!EOS                         ; $28  "BY ZYLON FIRE"
-                 .BYTE $1E,$1F!EOS                     ; $29  "POSTHUMOUS RANK IS:"
+                 .BYTE $05,$06,$02|EOP                 ; $01  "ATTACK COMPUTER ON"
+                 .BYTE $05,$06,$03|EOP                 ; $04  "ATTACK COMPUTER OFF"
+                 .BYTE $04,$02|EOP                     ; $07  "SHIELDS ON"
+                 .BYTE $04,$03|EOP                     ; $09  "SHIELDS OFF"
+                 .BYTE $06,$07,$02|EOP                 ; $0B  "COMPUTER TRACKING ON"
+                 .BYTE $07,$03|EOP                     ; $0E  "TRACKING OFF"
+                 .BYTE $08|EOP                         ; $10  "WHATS WRONG?"
+                 .BYTE $09,$0A|EOP                     ; $11  "HYPERWARP ENGAGED"
+                 .BYTE $0B,$0D|LLONG                    ; $13  "STARBASE SURROUNDED"
+                 .BYTE $0B,$0C|LLONG                    ; $15  "STARBASE DESTROYED"
+                 .BYTE $09,$0E|EOP                     ; $17  "HYPERWARP ABORTED"
+                 .BYTE $09,$0F|EOP                     ; $19  "HYPERWARP COMPLETE"
+                 .BYTE $10|LLONG                        ; $1B  "HYPERSPACE"
+                 .BYTE $11,$12|EOS                     ; $1C  "ORBIT ESTABLISHED"
+                 .BYTE $16|EOP                         ; $1E  "STANDBY"
+                 .BYTE $13,$0E|EOP                     ; $1F  "DOCKING ABORTED"
+                 .BYTE $15,$0F|EOP                     ; $21  "TRANSFER COMPLETE"
+                 .BYTE $38|EOS                         ; $23  " "
+                 .BYTE $17|EOS                         ; $24  "STAR FLEET TO"
+                 .BYTE $19|EOS                         ; $25  "ALL UNITS"
+                 .BYTE $18|EOS                         ; $26  "STAR CRUISER 7"
+                 .BYTE $0C|EOS                         ; $27  "DESTROYED"
+                 .BYTE $1D|EOS                         ; $28  "BY ZYLON FIRE"
+                 .BYTE $1E,$1F|EOS                     ; $29  "POSTHUMOUS RANK IS:"
                  .BYTE $FD                             ; $2B  "<PLACEHOLDER FOR RANK>"
                  .BYTE $25,$FC                         ; $2C  "CLASS <PLACEHOLDER FOR CLASS>"
-                 .BYTE $38!EOP                         ; $2E  " "
-                 .BYTE $1B!EOS                         ; $2F  "STAR RAIDERS"
-                 .BYTE $20!EOP                         ; $30  "COPYRIGHT ATARI 1979"
-                 .BYTE $38!EOS                         ; $31  " "
-                 .BYTE $17!EOS                         ; $32  "STAR FLEET TO"
-                 .BYTE $18!EOS                         ; $33  "STAR CRUISER 7"
-                 .BYTE $1A,$0E!EOS                     ; $34  "MISSION ABORTED"
-                 .BYTE $1C,$14!EOS                     ; $36  "ZERO ENERGY"
-                 .BYTE $24,$1F!EOS                     ; $38  "NEW RANK IS"
+                 .BYTE $38|EOP                         ; $2E  " "
+                 .BYTE $1B|EOS                         ; $2F  "STAR RAIDERS"
+                 .BYTE $20|EOP                         ; $30  "COPYRIGHT ATARI 1979"
+                 .BYTE $38|EOS                         ; $31  " "
+                 .BYTE $17|EOS                         ; $32  "STAR FLEET TO"
+                 .BYTE $18|EOS                         ; $33  "STAR CRUISER 7"
+                 .BYTE $1A,$0E|EOS                     ; $34  "MISSION ABORTED"
+                 .BYTE $1C,$14|EOS                     ; $36  "ZERO ENERGY"
+                 .BYTE $24,$1F|EOS                     ; $38  "NEW RANK IS"
                  .BYTE $FD                             ; $3A  "<PLACEHOLDER FOR RANK>"
                  .BYTE $25,$FC                         ; $3B  "CLASS <PLACEHOLDER FOR CLASS>"
-                 .BYTE $27!EOS                         ; $3D  "REPORT TO BASE"
-                 .BYTE $28!EOP                         ; $3E  "FOR TRAINING"
-                 .BYTE $38!EOS                         ; $3F  " "
-                 .BYTE $17!EOS                         ; $40  "STAR FLEET TO"
-                 .BYTE $18!EOS                         ; $41  "STAR CRUISER 7"
-                 .BYTE $1A,$0F!EOS                     ; $42  "MISSION COMPLETE"
-                 .BYTE $24,$1F!EOS                     ; $44  "NEW RANK IS:"
+                 .BYTE $27|EOS                         ; $3D  "REPORT TO BASE"
+                 .BYTE $28|EOP                         ; $3E  "FOR TRAINING"
+                 .BYTE $38|EOS                         ; $3F  " "
+                 .BYTE $17|EOS                         ; $40  "STAR FLEET TO"
+                 .BYTE $18|EOS                         ; $41  "STAR CRUISER 7"
+                 .BYTE $1A,$0F|EOS                     ; $42  "MISSION COMPLETE"
+                 .BYTE $24,$1F|EOS                     ; $44  "NEW RANK IS:"
                  .BYTE $FD                             ; $46  "<PLACEHOLDER FOR RANK>"
                  .BYTE $25,$FC                         ; $47  "CLASS <PLACEHOLDER FOR CLASS>"
-                 .BYTE $26!EOP                         ; $49  "CONGRATULATIONS"
-                 .BYTE $2C,$1A!EOP                     ; $4A  "NOVICE MISSION"
-                 .BYTE $2E,$1A!EOP                     ; $4C  "PILOT MISSION"
-                 .BYTE $31,$1A!EOP                     ; $4E  "WARRIOR MISSION"
-                 .BYTE $33,$1A!EOP                     ; $50  "COMMANDER MISSION"
-                 .BYTE $38!EOS                         ; $52  " "
-                 .BYTE $34,$36!EOP                     ; $53  "DAMAGE CONTROL"
-                 .BYTE $37,$35!EOS                     ; $55  "PHOTONS DAMAGED"
-                 .BYTE $38!EOP                         ; $57  " "
-                 .BYTE $37,$0C!EOS                     ; $58  "PHOTONS DESTROYED"
-                 .BYTE $38!EOP                         ; $5A  " "
-                 .BYTE $23,$35!EOS                     ; $5B  "ENGINES DAMAGED"
-                 .BYTE $38!EOP                         ; $5D  " "
-                 .BYTE $23,$0C!EOS                     ; $5E  "ENGINES DESTROYED"
-                 .BYTE $38!EOP                         ; $60  " "
-                 .BYTE $04,$35!EOS                     ; $61  "SHIELDS DAMAGED"
-                 .BYTE $38!EOP                         ; $63  " "
-                 .BYTE $04,$0C!EOS                     ; $64  "SHIELDS DESTROYED"
-                 .BYTE $38!EOP                         ; $66  " "
-                 .BYTE $06,$35!EOS                     ; $67  "COMPUTER DAMAGED"
-                 .BYTE $38!EOP                         ; $69  " "
-                 .BYTE $06,$0C!EOS                     ; $6A  "COMPUTER DESTROYED"
-                 .BYTE $38!EOP                         ; $6C  " "
-                 .BYTE $22!EOS                         ; $6D  "SECTOR SCAN"
-                 .BYTE $35!EOP                         ; $6E  "DAMAGED"
-                 .BYTE $22!EOS                         ; $6F  "SECTOR SCAN"
-                 .BYTE $0C!EOP                         ; $70  "DESTROYED"
-                 .BYTE $21!EOS                         ; $71  "SUB-SPACE RADIO"
-                 .BYTE $35!EOP                         ; $72  "DAMAGED"
-                 .BYTE $21!EOS                         ; $73  "SUB-SPACE RADIO"
-                 .BYTE $0C!EOP                         ; $74  "DESTROYED"
-                 .BYTE $01!LONG                        ; $75  "RED ALERT"
-                 .BYTE $38!EOS                         ; $76  " "
-                 .BYTE $17!EOS                         ; $77  "STAR FLEET TO"
-                 .BYTE $18!EOS                         ; $78  "STAR CRUISER 7"
-                 .BYTE $1A,$0E!EOS                     ; $79  "MISSION ABORTED"
-                 .BYTE $24,$1F!EOS                     ; $7B  "NEW RANK IS:"
+                 .BYTE $26|EOP                         ; $49  "CONGRATULATIONS"
+                 .BYTE $2C,$1A|EOP                     ; $4A  "NOVICE MISSION"
+                 .BYTE $2E,$1A|EOP                     ; $4C  "PILOT MISSION"
+                 .BYTE $31,$1A|EOP                     ; $4E  "WARRIOR MISSION"
+                 .BYTE $33,$1A|EOP                     ; $50  "COMMANDER MISSION"
+                 .BYTE $38|EOS                         ; $52  " "
+                 .BYTE $34,$36|EOP                     ; $53  "DAMAGE CONTROL"
+                 .BYTE $37,$35|EOS                     ; $55  "PHOTONS DAMAGED"
+                 .BYTE $38|EOP                         ; $57  " "
+                 .BYTE $37,$0C|EOS                     ; $58  "PHOTONS DESTROYED"
+                 .BYTE $38|EOP                         ; $5A  " "
+                 .BYTE $23,$35|EOS                     ; $5B  "ENGINES DAMAGED"
+                 .BYTE $38|EOP                         ; $5D  " "
+                 .BYTE $23,$0C|EOS                     ; $5E  "ENGINES DESTROYED"
+                 .BYTE $38|EOP                         ; $60  " "
+                 .BYTE $04,$35|EOS                     ; $61  "SHIELDS DAMAGED"
+                 .BYTE $38|EOP                         ; $63  " "
+                 .BYTE $04,$0C|EOS                     ; $64  "SHIELDS DESTROYED"
+                 .BYTE $38|EOP                         ; $66  " "
+                 .BYTE $06,$35|EOS                     ; $67  "COMPUTER DAMAGED"
+                 .BYTE $38|EOP                         ; $69  " "
+                 .BYTE $06,$0C|EOS                     ; $6A  "COMPUTER DESTROYED"
+                 .BYTE $38|EOP                         ; $6C  " "
+                 .BYTE $22|EOS                         ; $6D  "SECTOR SCAN"
+                 .BYTE $35|EOP                         ; $6E  "DAMAGED"
+                 .BYTE $22|EOS                         ; $6F  "SECTOR SCAN"
+                 .BYTE $0C|EOP                         ; $70  "DESTROYED"
+                 .BYTE $21|EOS                         ; $71  "SUB-SPACE RADIO"
+                 .BYTE $35|EOP                         ; $72  "DAMAGED"
+                 .BYTE $21|EOS                         ; $73  "SUB-SPACE RADIO"
+                 .BYTE $0C|EOP                         ; $74  "DESTROYED"
+                 .BYTE $01|LLONG                        ; $75  "RED ALERT"
+                 .BYTE $38|EOS                         ; $76  " "
+                 .BYTE $17|EOS                         ; $77  "STAR FLEET TO"
+                 .BYTE $18|EOS                         ; $78  "STAR CRUISER 7"
+                 .BYTE $1A,$0E|EOS                     ; $79  "MISSION ABORTED"
+                 .BYTE $24,$1F|EOS                     ; $7B  "NEW RANK IS:"
                  .BYTE $FD                             ; $7D  "<PLACEHOLDER FOR RANK>"
                  .BYTE $25,$FC                         ; $7E  "CLASS <PLACEHOLDER FOR CLASS>"
-                 .BYTE $26!EOP                         ; $80  "CONGRATULATIONS"
+                 .BYTE $26|EOP                         ; $80  "CONGRATULATIONS"
 
  ;*** Word table ****************************************************************
  ; Bit B7 of the first byte of a word is the end-of-word marker of the preceding
@@ -10894,64 +10894,64 @@
  ; LOCAL VARIABLES
  EOW             = $80                                 ; End of word
 
- WORDTAB         .BYTE EOW!$20,"    RED ALERT"         ; Word $01
-                 .BYTE EOW!'O,"N"                      ; Word $02
-                 .BYTE EOW!'O,"FF"                     ; Word $03
-                 .BYTE EOW!'S,"HIELDS"                 ; Word $04
-                 .BYTE EOW!'A,"TTACK"                  ; Word $05
-                 .BYTE EOW!'C,"OMPUTER"                ; Word $06
-                 .BYTE EOW!'T,"RACKING"                ; Word $07
-                 .BYTE EOW!'W,"HATS WRONG?"            ; Word $08
-                 .BYTE EOW!'H,"YPERWARP"               ; Word $09
-                 .BYTE EOW!'E,"NGAGED"                 ; Word $0A
-                 .BYTE EOW!'S,"TARBASE"                ; Word $0B
-                 .BYTE EOW!'D,"ESTROYED"               ; Word $0C
-                 .BYTE EOW!'S,"URROUNDED"              ; Word $0D
-                 .BYTE EOW!'A,"BORTED"                 ; Word $0E
-                 .BYTE EOW!'C,"OMPLETE"                ; Word $0F
-                 .BYTE EOW!'H,"YPERSPACE"              ; Word $10
-                 .BYTE EOW!'O,"RBIT"                   ; Word $11
-                 .BYTE EOW!'E,"STABLISHED"             ; Word $12
-                 .BYTE EOW!'D,"OCKING"                 ; Word $13
-                 .BYTE EOW!'E,"NERGY"                  ; Word $14
-                 .BYTE EOW!'T,"RANSFER"                ; Word $15
-                 .BYTE EOW!'S,"TANDBY"                 ; Word $16
-                 .BYTE EOW!'S,"TAR FLEET TO"           ; Word $17
-                 .BYTE EOW!'S,"TAR CRUISER 7"          ; Word $18
-                 .BYTE EOW!'A,"LL UNITS"               ; Word $19
-                 .BYTE EOW!'M,"ISSION"                 ; Word $1A
-                 .BYTE EOW!$20,"   STAR RAIDERS"       ; Word $1B
-                 .BYTE EOW!'Z,"ERO"                    ; Word $1C
-                 .BYTE EOW!'B,"Y ZYLON FIRE"           ; Word $1D
-                 .BYTE EOW!'P,"OSTHUMOUS"              ; Word $1E
-                 .BYTE EOW!'R,"ANK IS:"                ; Word $1F
-                 .BYTE EOW!'C,"OPYRIGHT ATARI 1979"    ; Word $20
-                 .BYTE EOW!'S,"UB-SPACE RADIO"         ; Word $21
-                 .BYTE EOW!'S,"ECTOR SCAN"             ; Word $22
-                 .BYTE EOW!'E,"NGINES"                 ; Word $23
-                 .BYTE EOW!'N,"EW"                     ; Word $24
-                 .BYTE EOW!'C,"LASS"                   ; Word $25
-                 .BYTE EOW!'C,"ONGRATULATIONS"         ; Word $26
-                 .BYTE EOW!'R,"EPORT TO BASE"          ; Word $27
-                 .BYTE EOW!'F,"OR TRAINING"            ; Word $28
-                 .BYTE EOW!'G,"ALACTIC COOK"           ; Word $29
-                 .BYTE EOW!'G,"ARBAGE SCOW CAPTAIN"    ; Word $2A
-                 .BYTE EOW!'R,"OOKIE"                  ; Word $2B
-                 .BYTE EOW!'N,"OVICE"                  ; Word $2C
-                 .BYTE EOW!'E,"NSIGN"                  ; Word $2D
-                 .BYTE EOW!'P,"ILOT"                   ; Word $2E
-                 .BYTE EOW!'A,"CE"                     ; Word $2F
-                 .BYTE EOW!'L,"IEUTENANT"              ; Word $30
-                 .BYTE EOW!'W,"ARRIOR"                 ; Word $31
-                 .BYTE EOW!'C,"APTAIN"                 ; Word $32
-                 .BYTE EOW!'C,"OMMANDER"               ; Word $33
-                 .BYTE EOW!'D,"AMAGE"                  ; Word $34
-                 .BYTE EOW!'D,"AMAGED"                 ; Word $35
-                 .BYTE EOW!'C,"ONTROL"                 ; Word $36
-                 .BYTE EOW!'P,"HOTONS"                 ; Word $37
-                 .BYTE EOW!$20                         ; Word $38
-                 .BYTE EOW!'S,"TAR COMMANDER"          ; Word $39
-                 .BYTE EOW!$00                         ;
+ WORDTAB         .TEXT EOW|$20,"    RED ALERT"         ; Word $01
+                 .TEXT EOW|'O',"N"                      ; Word $02
+                 .TEXT EOW|'O',"FF"                     ; Word $03
+                 .TEXT EOW|'S',"HIELDS"                 ; Word $04
+                 .TEXT EOW|'A',"TTACK"                  ; Word $05
+                 .TEXT EOW|'C',"OMPUTER"                ; Word $06
+                 .TEXT EOW|'T',"RACKING"                ; Word $07
+                 .TEXT EOW|'W',"HATS WRONG?"            ; Word $08
+                 .TEXT EOW|'H',"YPERWARP"               ; Word $09
+                 .TEXT EOW|'E',"NGAGED"                 ; Word $0A
+                 .TEXT EOW|'S',"TARBASE"                ; Word $0B
+                 .TEXT EOW|'D',"ESTROYED"               ; Word $0C
+                 .TEXT EOW|'S',"URROUNDED"              ; Word $0D
+                 .TEXT EOW|'A',"BORTED"                 ; Word $0E
+                 .TEXT EOW|'C',"OMPLETE"                ; Word $0F
+                 .TEXT EOW|'H',"YPERSPACE"              ; Word $10
+                 .TEXT EOW|'O',"RBIT"                   ; Word $11
+                 .TEXT EOW|'E',"STABLISHED"             ; Word $12
+                 .TEXT EOW|'D',"OCKING"                 ; Word $13
+                 .TEXT EOW|'E',"NERGY"                  ; Word $14
+                 .TEXT EOW|'T',"RANSFER"                ; Word $15
+                 .TEXT EOW|'S',"TANDBY"                 ; Word $16
+                 .TEXT EOW|'S',"TAR FLEET TO"           ; Word $17
+                 .TEXT EOW|'S',"TAR CRUISER 7"          ; Word $18
+                 .TEXT EOW|'A',"LL UNITS"               ; Word $19
+                 .TEXT EOW|'M',"ISSION"                 ; Word $1A
+                 .TEXT EOW|$20,"   STAR RAIDERS"       ; Word $1B
+                 .TEXT EOW|'Z',"ERO"                    ; Word $1C
+                 .TEXT EOW|'B',"Y ZYLON FIRE"           ; Word $1D
+                 .TEXT EOW|'P',"OSTHUMOUS"              ; Word $1E
+                 .TEXT EOW|'R',"ANK IS:"                ; Word $1F
+                 .TEXT EOW|'C',"OPYRIGHT ATARI 1979"    ; Word $20
+                 .TEXT EOW|'S',"UB-SPACE RADIO"         ; Word $21
+                 .TEXT EOW|'S',"ECTOR SCAN"             ; Word $22
+                 .TEXT EOW|'E',"NGINES"                 ; Word $23
+                 .TEXT EOW|'N',"EW"                     ; Word $24
+                 .TEXT EOW|'C',"LASS"                   ; Word $25
+                 .TEXT EOW|'C',"ONGRATULATIONS"         ; Word $26
+                 .TEXT EOW|'R',"EPORT TO BASE"          ; Word $27
+                 .TEXT EOW|'F',"OR TRAINING"            ; Word $28
+                 .TEXT EOW|'G',"ALACTIC COOK"           ; Word $29
+                 .TEXT EOW|'G',"ARBAGE SCOW CAPTAIN"    ; Word $2A
+                 .TEXT EOW|'R',"OOKIE"                  ; Word $2B
+                 .TEXT EOW|'N',"OVICE"                  ; Word $2C
+                 .TEXT EOW|'E',"NSIGN"                  ; Word $2D
+                 .TEXT EOW|'P',"ILOT"                   ; Word $2E
+                 .TEXT EOW|'A',"CE"                     ; Word $2F
+                 .TEXT EOW|'L',"IEUTENANT"              ; Word $30
+                 .TEXT EOW|'W',"ARRIOR"                 ; Word $31
+                 .TEXT EOW|'C',"APTAIN"                 ; Word $32
+                 .TEXT EOW|'C',"OMMANDER"               ; Word $33
+                 .TEXT EOW|'D',"AMAGE"                  ; Word $34
+                 .TEXT EOW|'D',"AMAGED"                 ; Word $35
+                 .TEXT EOW|'C',"ONTROL"                 ; Word $36
+                 .TEXT EOW|'P',"HOTONS"                 ; Word $37
+                 .TEXT EOW|$20                         ; Word $38
+                 .TEXT EOW|'S',"TAR COMMANDER"          ; Word $39
+                 .BYTE EOW|$00                         ;
 
  ;*** View modes ****************************************************************
  VIEWMODETAB     .BYTE $00                             ; Front view
@@ -11182,21 +11182,21 @@
                  .BYTE $FF                             ; 'A' - Aft view
 
  ;*** Galactic Chart sector character codes (encoded in custom character set) ***
- SECTORCHARTAB   .BYTE CCS.BORDERSW                    ; Empty sector
-                 .BYTE CCS.2ZYLONS                     ; Sector contains 1 Zylon ship
-                 .BYTE CCS.2ZYLONS                     ; Sector contains 2 Zylon ships
-                 .BYTE CCS.3ZYLONS                     ; Sector contains 3 Zylon ships
-                 .BYTE CCS.4ZYLONS                     ; Sector contains 4 Zylon ships
-                 .BYTE CCS.STARBASE                    ; Sector contains starbase
+ SECTORCHARTAB   .BYTE CCS_BORDERSW                    ; Empty sector
+                 .BYTE CCS_2ZYLONS                     ; Sector contains 1 Zylon ship
+                 .BYTE CCS_2ZYLONS                     ; Sector contains 2 Zylon ships
+                 .BYTE CCS_3ZYLONS                     ; Sector contains 3 Zylon ships
+                 .BYTE CCS_4ZYLONS                     ; Sector contains 4 Zylon ships
+                 .BYTE CCS_STARBASE                    ; Sector contains starbase
 
  ;*** Mask to limit veer-off velocity of Hyperwarp Target Marker in hyperwarp ***
- VEERMASKTAB     .BYTE NEG!31                          ;  -31..+31  <KM/H> (unused)
-                 .BYTE NEG!63                          ;  -63..+63  <KM/H> PILOT mission
-                 .BYTE NEG!95                          ;  -95..+95  <KM/H> WARRIOR mission
-                 .BYTE NEG!127                         ; -127..+127 <KM/H> COMMANDER mission
+ VEERMASKTAB     .BYTE NEG|31                          ;  -31..+31  <KM/H> (unused)
+                 .BYTE NEG|63                          ;  -63..+63  <KM/H> PILOT mission
+                 .BYTE NEG|95                          ;  -95..+95  <KM/H> WARRIOR mission
+                 .BYTE NEG|127                         ; -127..+127 <KM/H> COMMANDER mission
 
  ;*** Horizontal PLAYER offsets for PLAYER0..1 (STARBASE LEFT, STARBASE RIGHT) **
- PLSTARBAOFFTAB  .BYTE -8                              ; -8 Player/Missile pixels
+ PLSTARBAOFFTAB  .BYTE char(-8)                        ; -8 Player/Missile pixels
                  .BYTE 8                               ; +8 Player/Missile pixels
 
  ;*** Mission bonus table *******************************************************
@@ -11216,43 +11216,43 @@
                  .BYTE 90                              ; Starship destroyed COMMANDER mission
 
  ;*** Title phrase offsets of scored class rank *********************************
- RANKTAB         .BYTE $29!EOS                         ; "GALACTIC COOK"
-                 .BYTE $2A!EOS                         ; "GARBAGE SCOW CAPTAIN"
-                 .BYTE $2A!EOS                         ; "GARBAGE SCOW CAPTAIN"
-                 .BYTE $2B!EOS                         ; "ROOKIE"
-                 .BYTE $2B!EOS                         ; "ROOKIE"
-                 .BYTE $2C!EOS                         ; "NOVICE"
-                 .BYTE $2C!EOS                         ; "NOVICE"
-                 .BYTE $2D!EOS                         ; "ENSIGN"
-                 .BYTE $2D!EOS                         ; "ENSIGN"
-                 .BYTE $2E!EOS                         ; "PILOT"
-                 .BYTE $2E!EOS                         ; "PILOT"
-                 .BYTE $2F!EOS                         ; "ACE"
-                 .BYTE $30!EOS                         ; "LIEUTENANT"
-                 .BYTE $31!EOS                         ; "WARRIOR"
-                 .BYTE $32!EOS                         ; "CAPTAIN"
-                 .BYTE $33!EOS                         ; "COMMANDER"
-                 .BYTE $33!EOS                         ; "COMMANDER"
-                 .BYTE $39!EOS                         ; "STAR COMMANDER"
-                 .BYTE $39!EOS                         ; "STAR COMMANDER"
+ RANKTAB         .BYTE $29|EOS                         ; "GALACTIC COOK"
+                 .BYTE $2A|EOS                         ; "GARBAGE SCOW CAPTAIN"
+                 .BYTE $2A|EOS                         ; "GARBAGE SCOW CAPTAIN"
+                 .BYTE $2B|EOS                         ; "ROOKIE"
+                 .BYTE $2B|EOS                         ; "ROOKIE"
+                 .BYTE $2C|EOS                         ; "NOVICE"
+                 .BYTE $2C|EOS                         ; "NOVICE"
+                 .BYTE $2D|EOS                         ; "ENSIGN"
+                 .BYTE $2D|EOS                         ; "ENSIGN"
+                 .BYTE $2E|EOS                         ; "PILOT"
+                 .BYTE $2E|EOS                         ; "PILOT"
+                 .BYTE $2F|EOS                         ; "ACE"
+                 .BYTE $30|EOS                         ; "LIEUTENANT"
+                 .BYTE $31|EOS                         ; "WARRIOR"
+                 .BYTE $32|EOS                         ; "CAPTAIN"
+                 .BYTE $33|EOS                         ; "COMMANDER"
+                 .BYTE $33|EOS                         ; "COMMANDER"
+                 .BYTE $39|EOS                         ; "STAR COMMANDER"
+                 .BYTE $39|EOS                         ; "STAR COMMANDER"
 
  ;*** Scored class number table *************************************************
- CLASSTAB        .BYTE CCS.COL2!ROM.5                  ; Class 5
-                 .BYTE CCS.COL2!ROM.5                  ; Class 5
-                 .BYTE CCS.COL2!ROM.5                  ; Class 5
-                 .BYTE CCS.COL2!ROM.4                  ; Class 4
-                 .BYTE CCS.COL2!ROM.4                  ; Class 4
-                 .BYTE CCS.COL2!ROM.4                  ; Class 4
-                 .BYTE CCS.COL2!ROM.4                  ; Class 4
-                 .BYTE CCS.COL2!ROM.3                  ; Class 3
-                 .BYTE CCS.COL2!ROM.3                  ; Class 3
-                 .BYTE CCS.COL2!ROM.3                  ; Class 3
-                 .BYTE CCS.COL2!ROM.2                  ; Class 2
-                 .BYTE CCS.COL2!ROM.2                  ; Class 2
-                 .BYTE CCS.COL2!ROM.2                  ; Class 2
-                 .BYTE CCS.COL2!ROM.1                  ; Class 1
-                 .BYTE CCS.COL2!ROM.1                  ; Class 1
-                 .BYTE CCS.COL2!ROM.1                  ; Class 1
+ CLASSTAB        .BYTE CCS_COL2|ROM_5                  ; Class 5
+                 .BYTE CCS_COL2|ROM_5                  ; Class 5
+                 .BYTE CCS_COL2|ROM_5                  ; Class 5
+                 .BYTE CCS_COL2|ROM_4                  ; Class 4
+                 .BYTE CCS_COL2|ROM_4                  ; Class 4
+                 .BYTE CCS_COL2|ROM_4                  ; Class 4
+                 .BYTE CCS_COL2|ROM_4                  ; Class 4
+                 .BYTE CCS_COL2|ROM_3                  ; Class 3
+                 .BYTE CCS_COL2|ROM_3                  ; Class 3
+                 .BYTE CCS_COL2|ROM_3                  ; Class 3
+                 .BYTE CCS_COL2|ROM_2                  ; Class 2
+                 .BYTE CCS_COL2|ROM_2                  ; Class 2
+                 .BYTE CCS_COL2|ROM_2                  ; Class 2
+                 .BYTE CCS_COL2|ROM_1                  ; Class 1
+                 .BYTE CCS_COL2|ROM_1                  ; Class 1
+                 .BYTE CCS_COL2|ROM_1                  ; Class 1
 
  ;*** Title phrase offsets of mission level *************************************
  MISSIONPHRTAB   .BYTE $4A                             ; "NOVICE MISSION"
@@ -11271,7 +11271,7 @@
                  .BYTE $5B                             ; "ENGINES DAMAGED"
                  .BYTE $61                             ; "SHIELDS DAMAGED"
                  .BYTE $67                             ; "COMPUTER DAMAGED"
-                 .BYTE $6D                             ; "LONG RANGE SCAN DAMAGED"
+                 .BYTE $6D                             ; "LLONG RANGE SCAN DAMAGED"
                  .BYTE $71                             ; "SUB-SPACE RADIO DAMAGED"
 
  ;*** Title phrase offsets of destroyed subsystems ******************************
@@ -11279,7 +11279,7 @@
                  .BYTE $5E                             ; "ENGINES DESTROYED"
                  .BYTE $64                             ; "SHIELDS DESTROYED"
                  .BYTE $6A                             ; "COMPUTER DESTROYED"
-                 .BYTE $6F                             ; "LONG RANGE SCAN DESTROYED"
+                 .BYTE $6F                             ; "LLONG RANGE SCAN DESTROYED"
                  .BYTE $73                             ; "SUB-SPACE RADIO DESTROYED"
 
  ;*** 3 x 10-byte noise sound patterns (bytes 0..7 stored in reverse order) *****
@@ -11416,20 +11416,20 @@
                  .BYTE $0C                             ; >= 3072 ($0C**) <KM>
 
  ;*** Velocity of homing Zylon photon torpedo ***********************************
- ZYLONHOMVELTAB  .BYTE NEG!1                           ;  -1 <KM/H> NOVICE mission
-                 .BYTE NEG!4                           ;  -4 <KM/H> PILOT mission
-                 .BYTE NEG!8                           ;  -8 <KM/H> WARRIOR mission
-                 .BYTE NEG!20                          ; -20 <KM/H> COMMANDER mission
+ ZYLONHOMVELTAB  .BYTE NEG|1                           ;  -1 <KM/H> NOVICE mission
+                 .BYTE NEG|4                           ;  -4 <KM/H> PILOT mission
+                 .BYTE NEG|8                           ;  -8 <KM/H> WARRIOR mission
+                 .BYTE NEG|20                          ; -20 <KM/H> COMMANDER mission
 
  ;*** Zylon shape type table ****************************************************
- ZYLONSHAPTAB    .BYTE SHAP.ZBASESTAR                  ; ZYLON BASESTAR
-                 .BYTE SHAP.ZFIGHTER                   ; ZYLON FIGHTER
-                 .BYTE SHAP.ZFIGHTER                   ; ZYLON FIGHTER
-                 .BYTE SHAP.ZFIGHTER                   ; ZYLON FIGHTER
-                 .BYTE SHAP.ZCRUISER                   ; ZYLON CRUISER
-                 .BYTE SHAP.ZCRUISER                   ; ZYLON CRUISER
-                 .BYTE SHAP.ZCRUISER                   ; ZYLON CRUISER
-                 .BYTE SHAP.ZFIGHTER                   ; ZYLON FIGHTER
+ ZYLONSHAPTAB    .BYTE SHAP_ZBASESTAR                  ; ZYLON BASESTAR
+                 .BYTE SHAP_ZFIGHTER                   ; ZYLON FIGHTER
+                 .BYTE SHAP_ZFIGHTER                   ; ZYLON FIGHTER
+                 .BYTE SHAP_ZFIGHTER                   ; ZYLON FIGHTER
+                 .BYTE SHAP_ZCRUISER                   ; ZYLON CRUISER
+                 .BYTE SHAP_ZCRUISER                   ; ZYLON CRUISER
+                 .BYTE SHAP_ZCRUISER                   ; ZYLON CRUISER
+                 .BYTE SHAP_ZFIGHTER                   ; ZYLON FIGHTER
 
  ;*** Zylon flight pattern table ************************************************
  ZYLONFLPATTAB   .BYTE 4                               ; Flight pattern 4
@@ -11451,13 +11451,13 @@
                  .BYTE 1                               ;  +1 <KM/H>
                  .BYTE 0                               ;   0 <KM/H>
                  .BYTE 0                               ;   0 <KM/H>
-                 .BYTE NEG!1                           ;  -1 <KM/H>
-                 .BYTE NEG!2                           ;  -2 <KM/H>
-                 .BYTE NEG!4                           ;  -4 <KM/H>
-                 .BYTE NEG!8                           ;  -8 <KM/H>
-                 .BYTE NEG!16                          ; -16 <KM/H>
-                 .BYTE NEG!30                          ; -30 <KM/H>
-                 .BYTE NEG!62                          ; -62 <KM/H>
+                 .BYTE NEG|1                           ;  -1 <KM/H>
+                 .BYTE NEG|2                           ;  -2 <KM/H>
+                 .BYTE NEG|4                           ;  -4 <KM/H>
+                 .BYTE NEG|8                           ;  -8 <KM/H>
+                 .BYTE NEG|16                          ; -16 <KM/H>
+                 .BYTE NEG|30                          ; -30 <KM/H>
+                 .BYTE NEG|62                          ; -62 <KM/H>
 
  ;*** PLAYFIELD colors (including PLAYFIELD colors during DLI) ******************
  PFCOLORTAB      .BYTE $A6                             ; PF0COLOR    = {GREEN}
@@ -11489,14 +11489,14 @@
                  .BYTE 32                              ; 4 Zylon ships  13% ( 32:256)
 
  ;*** Galactic Chart sector offset to adjacent sector ***************************
- COMPASSOFFTAB   .BYTE -16                             ; NORTH
-                 .BYTE -17                             ; NORTHWEST
-                 .BYTE -1                              ; WEST
+ COMPASSOFFTAB   .BYTE char(-16)                             ; NORTH
+                 .BYTE char(-17)                             ; NORTHWEST
+                 .BYTE char(-1)                              ; WEST
                  .BYTE 15                              ; SOUTHWEST
                  .BYTE 16                              ; SOUTH
                  .BYTE 17                              ; SOUTHEAST
                  .BYTE 1                               ; EAST
-                 .BYTE -15                             ; NORTHEAST
+                 .BYTE char(-15)                             ; NORTHEAST
                  .BYTE 0                               ; CENTER
 
  ;*** Homing velocities of photon torpedoes 0..1 depending on distance to target 
