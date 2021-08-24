@@ -13,9 +13,9 @@ starraiders.xex: src/starraiders-original.asm
 	md5sum bin/starraiders.xex orig/starraiders.rom
 	echo "50d3d48571d77c8f252e0c7016edba99  bin/starraiders.xex" | md5sum -c
 
-starraiders-annotated.xex: src/starraiders.asm
+starraiders-annotated.xex: src/starraiders-annotated.asm
 	$(shell mkdir -p $(DIRS))
-	64tass -Wall --atari-xex -b -o bin/starraiders.xex -L bin/starraiders-annotated.txt src/starraiders.asm
+	64tass -Wall --atari-xex -b -o bin/starraiders-annotated.xex -L bin/starraiders-annotated.txt src/starraiders-annotated.asm
 	md5sum bin/starraiders.xex orig/starraiders.rom
 	echo "50d3d48571d77c8f252e0c7016edba99  bin/starraiders.xex" | md5sum -c
 
