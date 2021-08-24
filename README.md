@@ -6,7 +6,7 @@ This repo contains two versions of the source code for Star Raiders. Both can be
 [starraiders-original.asm](src/starraiders-original.asm) is the original source code of the game, sourced from [a scanned
 copy of the game's assembly listing.](src/Atari_Star_Raiders_Source_Code.pdf) This was copied from [a now archived repo](https://github.com/XioNYC/StarRaiders) containing a group's attempt at transcribing and formatting [the original scanned photographs](src/Atari_Star_Raiders_Source_Code.pdf). I've corrected [a bunch of typos and ommissions](https://github.com/mwenge/StarRaiders/commit/465d8c856d7a7b2b0e4678723b3c0cd7edb86170) in that transcription to produce [a listing](src/starraiders-original.asm) that can be assembled and run.
 
-[starraiders-annotated.asm](src/starraiders-annotated.asm) is a fork of [Lorenz Wiest's disassembly of Star Raiders](lwiest/StarRaiders) that has been modified to build with [64tass](https://sourceforge.net/projects/tass64/). This is the file to read if you're interested in understanding the inner workings of the game since it contains a wealth of commentary and information.
+[starraiders-annotated.asm](src/starraiders-annotated.asm) is a fork of [Lorenz Wiest's disassembly of Star Raiders](https://github.com/lwiest/StarRaiders) that has been modified to build with [64tass](https://sourceforge.net/projects/tass64/). This is the file to read if you're interested in understanding the inner workings of the game since it contains a wealth of commentary and information.
 
 
 <!-- vim-markdown-toc GFM -->
